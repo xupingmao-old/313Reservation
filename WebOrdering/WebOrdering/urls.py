@@ -1,7 +1,11 @@
 from django.conf.urls import patterns, include, url
-from WebOrdering.user_views import *
-from WebOrdering.food_views import *
-from WebOrdering.order_views import *
+from WebOrdering.home_view import *
+from WebOrdering.about_view import *
+from WebOrdering.register_view import *
+from WebOrdering.old_customer_view import *
+from WebOrdering.new_customer_view import *
+from WebOrdering.result_view import *
+from WebOrdering.submit_view import *
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
