@@ -12,21 +12,21 @@
 	<div id='navigator'>
 		<div id='logo_img'><img src='img/home.jpg'/></div>
 		<ul id='menu'>
-			<li><a href='#'>首页</a></li>
-			<li><a href='#'>开始订餐</a></li>
-			<li><a href='#'>订餐须知</a></li>
-			<li><a href='#'>联系我们</a></li>
+			<li class='active'>首页</li>
+			<li>开始订餐</li>
+			<li>订餐须知</li>
+			<li>联系我们</li>
 		</ul>
 	</div>
 	<div id='dinner_time'>
 		<span>电话订餐 18607249516</span>
-		<span>|   午餐 11:30-13:30</span>
-		<span>|   晚餐 17:30-19:30</span>
+		<span>    午餐 11:30-13:30</span>
+		<span>    晚餐 17:30-19:30</span>
 	</div>
 	<div id='main_div'>
 		<div id='sidebar'>
 			<ul>
-				<li>超值套餐</li>
+				<li class='sidebar_active'>超值套餐</li>
 				<li>经典盖饭</li>
 				<li>小吃点心</li>
 				<li>饮品</li>
@@ -34,9 +34,16 @@
 		</div>
 		
 		<div id='foods'>
+		{%for url,food in foods%}
 			<div class='food'>
-				test
+				<div class='food_pic'>
+					<img class='pic_dark' src='{{url}}'/>
+				</div>
+				<div class='food_info'>
+					<span>{{food}}</span>
+				</div>
 			</div>
+		{%endfor%}
 		</div>
 		<div id='order'>
 		</div>
