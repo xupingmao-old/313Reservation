@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>
+            管理员登录
+        </title>
+        <link rel="stylesheet" rev="stylesheet" href="./css/hub.css" type="text/css"
+        media="screen">
+        <style>
+            body{height:100%; margin:0px; padding:0px;} .STYLE1 {color: #3A6EA5} a:visited
+            { color: #FFFFFF; text-decoration: none; } a:link { color: #FFFFFF; text-decoration:
+            none; } a:hover { text-decoration: underline; } a:active { text-decoration:
+            none; } .STYLE5 {color: #FFFFFF} .STYLE6 { color: #FF0000; font-weight:
+            bold; }
+        </style>
+        <script type="text/javascript" src="./js/jquery.min.js">
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                $("#user_t").focus(function() {
+                    $(this).hide();
+                    $("#username").show();
+                    $("#username").focus();
+                });
+
+                $("#username").blur(function() {
+                    var v = $(this).val();
+                    if (v == "") {
+                        $(this).hide();
+                        $("#user_t").show();
+                    }
+                })
+
+                $("#pwd_t").focus(function() {
+                    $(this).hide();
+                    $("#password").show();
+                    $("#password").focus();
+                })
+
+                $("#password").blur(function() {
+                    var v = $(this).val();
+                    if (v == "") {
+                        $(this).hide();
+                        $("#pwd_t").show();
+                    }
+                })
+
+                $("#yzm_t").focus(function() {
+                    $(this).hide();
+                    $("#yzm").show();
+                    $("#yzm").focus();
+                })
+
+                $("#yzm").blur(function() {
+                    var v = $(this).val();
+                    if (v == "") {
+                        $(this).hide();
+                        $("#yzm_t").show();
+                    }
+                })
+
+                $("input:text").focus(function() {
+                    $(this).css("background-color", "#DAEDFC");
+                })
+
+                $("input:text").blur(function() {
+                    $(this).css("background-color", "");
+                })
+
+                $("input:password").focus(function() {
+                    $(this).css("background-color", "#DAEDFC");
+                })
+
+                $("input:password").blur(function() {
+                    $(this).css("background-color", "");
+                })
+
+                $("input[name='username']").blur(function() {
+                    var v = $(this).val();
+                    if (v == "") {
+                        $("#zh_span").text("请输入用户名");
+                    } else {
+                        $("#zh_span").text("");
+                        getrandomImg(v);
+                    }
+                })
+
+                $("input[name='password']").blur(function() {
+                    var v = $(this).val();
+                    if (v == "") {
+                        $("#mm_span").text("请输入密码");
+                    } else {
+                        $("#mm_span").text("");
+                    }
+                })
+
+                $("#yzm").blur(function() {
+                    var v = $(this).val();
+                    if (v == "") {
+                        $("#yzm_span").text("请输入验证码");
+                    } else {
+                        $("#yzm_span").text("");
+                    }
+                })
+
+                $("#random_img").click(function() {
+                    var username = $.trim($("input[name='username']").val());
+                    if (username == "") {
+                        alert("请先输入账号");
+                        $("input[name='username']").focus();
+                        return false;
+                    }
+                    getrandomImg(username);
+                })
+
+                $("#form1").submit(function() {
+                    var usertype = "";
+                    $("input[name='usertype']").each(function() {
+                        if ($(this).attr("checked") == true) {
+                            usertype = $(this).val();
+                        }
+                    })
+/*
+                    if (usertype == "") {
+                        alert("请选择您的身份类型");
+                        return false;
+                    }
+
+                    if (usertype != "xs" && usertype != "jg" && usertype != "uid") {
+                        alert("请选择有效的身份类型");
+                        return false;
+                    }
+*/
+                    var username = $("input[name='username']").val();
+                    if (username == "") {
+                        alert("请输入用户名");
+                        $("input[name='username']").focus();
+                        return false;
+                    }
+
+                    var reg = /^[A-Za-z0-9]+$/;
+                    if (!reg.test(username)) {
+                        alert("请输入有效的用户名");
+                        $("input[name='username']").focus();
+                        return false;
+                    }
+
+                    var password = $("input[name='password']").val();
+                    if (password == "") {
+                        alert("请输入用户密码");
+                        $("input[name='password']").focus();
+                        return false;
+                    }
+/*
+                    var rand = $("input[name='rand']").val();
+                    if (rand == "") {
+                        alert("请输入验证码");
+                        $("input[name='rand']").focus();
+                        return false;
+                    }
+
+                    reg = /^[0-9]*$/;
+                    if (!reg.test(rand)) {
+                        alert("请输入有效的验证码");
+                        $("input[name='rand']").focus();
+                        return false;
+                    }
+*/
+                    $("input[name='password']").val($.base64.encode(password));
+                })
+            })
+
+            function getrandomImg(username) {
+                var date = new Date().getTime();
+                $.getJSON("/randomKey.action?username=" + username + "&time=" + date,
+                function(msg) {
+                    var url = "/randomImage.action?k1=" + msg[0] + "&k2=" + msg[1] + "&uno=" + username + "&time=" + date;
+                    $("#key1").val(msg[0]);
+                    $("#key2").val(msg[1]);
+                    $("#random_img").attr("src", url);
+                    $("#yzm_msg").hide();
+                    $("#yzm_tr").show();
+                })
+            }
+        </script>
+        <script>
+            window["_GOOG_TRANS_EXT_VER"] = "1";
+        </script>
+    </head>
+    
+    <body>
+        <div align="center">
+            <table style="width: 850px;margin-top: 10px;">
+                <tbody>
+                    <tr>
+                        <td style="width: 450px;">
+                            <div style="width: 450px;height: 300px;background-image:url(img/admin.jpg);background-repeat: no-repeat;background-position: top;background-size:450px;background-color: #D5E9F1;"
+                            title="HUB首页">
+                            </div>
+                            <div class="history" align="left">
+                                <div class="history_title">
+                                    管理员须知&nbsp;
+                                </div>
+                                <div class="history_content">
+                                        请严格根据国家相关法律规定进行操作！
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td align="left" valign="middle" style="height: 100px;">
+                                            <!-- <img src="/images/hub_index/logo.gif" border="0" style="margin-left:
+                                            50px;margin-bottom: 30px;"/>
+                                            -->
+                                            <span style="color: #666666;font-size: 35px;line-height:40px;margin-left: 45px;">
+                                                华中科技大学订餐系统
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" valign="middle" style="height: 350px;">
+                                            <!--表单开始-->
+                                            <div class="bubble">
+                                                <div class="info" style="padding: 5px 5px 5px 5px;">
+                                                    <form action="http://hub.hust.edu.cn/hublogin.action" name="form1" id="form1"
+                                                    method="post">
+                                                        <table>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="left" valign="top" style="">
+                                                                        &nbsp;
+                                                                        <input type="text" class="input_text" id="user_t" style="width: 300px;height: 25px;color: #666666"
+                                                                        value="请输入用户名" tabindex="2">
+                                                                        <input type="text" class="input_text" id="username" name="username" style="width: 300px;height: 25px;color: #000000;display: none"
+                                                                        tabindex="2">
+                                                                        <!-- &nbsp;&nbsp;<span id="zh_span" style="color:red;font-size: 15px;"></span> -->
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left" valign="top">
+                                                                        &nbsp;
+                                                                        <input type="text" class="input_text" id="pwd_t" style="width: 300px;height: 25px;color: #666666"
+                                                                        value="请输入密码" tabindex="3">
+                                                                        <input type="password" class="input_text" id="password" name="password"
+                                                                        style="width: 300px;height: 25px;color: #000000;display: none;" tabindex="3">
+                                                                        <!-- &nbsp;&nbsp;<span id="mm_span" style="color: red;font-size: 15px;"></span>-->
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td valign="bottom" style="PADDING-LEFT: 10px; ">
+                                                                        <input name="submit" type="submit" class="button" style="margin-bottom:22px;width:120px;cursor: pointer;line-height: 35px;"
+                                                                        value="立即登录" tabindex="5">
+                                                                    </td>
+                                                                </tr>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr> 
+                                                            </tbody>
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="height: 30px;" valign="bottom">
+                            <hr>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="font-size:12px;" valign="top">
+                            <div style="width:60%; float:left;" align="left">
+                                ©2013-2013&nbsp;
+                                <a href="#" target="_blank" style="color:#3a6ea5">
+                                    华中科技大学韵苑16#313
+                                </a>
+                                &nbsp;&nbsp;湖北省武汉市洪山区珞喻路1037号&nbsp;邮政编码：430074
+                            </div>
+                            <div style="width:40%; float:right;" align="right">
+                                电话：123456789&nbsp;&nbsp;信箱：xupingmao@gmail.com
+                            </div>
+                            <!-- <p style="text-align:center">&copy;2006-2013&nbsp;<a href="http://registrar.hust.edu.cn" target="_blank" style="color:#3a6ea5">华中科技大学注册中心</a> &nbsp;&nbsp;湖北省武汉市洪山区珞喻路1037号&nbsp;邮政编码：430074 <br/>电话：027-87540101 87540601 &nbsp; &nbsp;
+                            Powered by <a href="http://hub.hust.edu.cn"><img src="/images/hub_index/hub.png" border="0" /></a>
+                            </p>
+                            -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--POPUP START-->
+        <div id="popup3" class="popup_block">
+            <h2 align="center">
+                关于2013学年秋季学期学生缴费的通知
+            </h2>
+            <br>
+            <p>
+                全校同学：
+                <br>
+                　　根据注册中心“关于2013年秋季学期学生注册的通知”安排，2013年秋季学期普通本（专）科生、全日制研究生、外国留学生和港澳台侨学生的注册时间为8月29日、30日、31日。为方便各位同学缴纳2013学年学费、住宿费、医保等费用并能及时注册，学校将继续委托中国银行武汉喻家山支行（本科生学费）和中国工商银行武汉喻家山支行（研究生学费）提供“批量划扣”的收费方式收取学费，请各位同学务必在8月26日之前将2013学年学费、住宿费、医保等费用（请在缴费卡内至少保留10元余额）存入缴费卡内，财务处将于8月27日委托中国银行武汉喻家山支行和中国工商银行武汉喻家山支行批量划扣学费。凡更换过缴费卡卡号的同学，请尽快到学校财务处学费管理办公室（地点：大学生活动中心B座一楼，电话：87557413）登记新卡号，以免影响划扣学费，因财务人员要参加新生现场迎新收费工作，8月29日至9月4日之间不在办公室不能登记卡号，请同学们避开此时间段，其他正常工作日均可。
+                <br>
+                　　
+                <span style="font-weight: bold;">
+                    为方便同学们能及时注册，请同学们务必按以上时间要求及时存入各项费用。来不及存入的同学，只要在补注册期内存入均可，我们会隔几天批扣一次。对以上学生我们不办理现场缴费事宜，一律由银行统一划扣。
+                </span>
+                <br>
+                　　
+                <span style="font-weight: bold;">
+                    另由于今年部分宿舍安装了空调，根据湖北省物价局的文件规定，安装了空调的宿舍在原标准基础上增加120-480元/人.年（根据每间宿舍的住宿人数来定），请同学们务必多存一点钱。
+                </span>
+                <br>
+                　　特此通知。
+                <br>
+            </p>
+            <p align="right">
+                财务处
+                <br>
+                2013年8月26日
+            </p>
+        </div>
+        <!--END POPUP-->
+        <map name="Map" id="Map">
+            <area shape="rect" coords="262,301,417,315" href="http://hub.hust.edu.cn/indexpic/applyindexpic.jsp"
+            target="_blank" style="cursor: pointer;">
+        </map>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                //When you click on a link with class of poplight and the href starts with a # 
+                $('a.poplight[href^=#]').click(function() {
+                    var popID = $(this).attr('rel'); //Get Popup Name
+                    var popURL = $(this).attr('href'); //Get Popup href to define size
+                    //Pull Query & Variables from href URL
+                    var query = popURL.split('?');
+                    var dim = query[1].split('&');
+                    var popWidth = dim[0].split('=')[1]; //Gets the first query string value
+                    //Fade in the Popup and add close button
+                    $('#' + popID).fadeIn().css({
+                        'width': Number(popWidth)
+                    }).prepend('<a href="#" class="close"><img src="/images/hub_index/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>');
+
+                    //Define margin for center alignment (vertical + horizontal) - we add 80 to the height/width to accomodate for the padding + border width defined in the css
+                    var popMargTop = ($('#' + popID).height() + 80) / 2;
+                    var popMargLeft = ($('#' + popID).width() + 80) / 2;
+
+                    //Apply Margin to Popup
+                    $('#' + popID).css({
+                        'margin-top': -popMargTop,
+                        'margin-left': -popMargLeft
+                    });
+
+                    //Fade in Background
+                    $('body').append('<div id="fade"></div>'); //Add the fade layer to bottom of the body tag.
+                    $('#fade').css({
+                        'filter': 'alpha(opacity=80)'
+                    }).fadeIn(); //Fade in the fade layer 
+                    return false;
+                });
+
+                //Close Popups and Fade Layer
+                $('a.close, #fade').live('click',
+                function() { //When clicking on the close or fade layer...
+                    $('#fade , .popup_block').fadeOut(function() {
+                        $('#fade, a.close').remove();
+                    }); //fade them both out
+                    return false;
+                });
+            });
+        </script>
+    </body>
+
+</html>
