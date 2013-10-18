@@ -229,8 +229,8 @@ body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 	margin-left:40px;
 }
         </style>
-        <script type="text/javascript" src="/js/jquery.min.js">
-        </script>
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/md5.js"></script>
         <script type="text/javascript">
             $(function() {
                 $("#user_t").focus(function() {
@@ -310,25 +310,6 @@ body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
                     }
                 })
 
-                $("#yzm").blur(function() {
-                    var v = $(this).val();
-                    if (v == "") {
-                        $("#yzm_span").text("请输入验证码");
-                    } else {
-                        $("#yzm_span").text("");
-                    }
-                })
-
-                $("#random_img").click(function() {
-                    var username = $.trim($("input[name='username']").val());
-                    if (username == "") {
-                        alert("请先输入账号");
-                        $("input[name='username']").focus();
-                        return false;
-                    }
-                    getrandomImg(username);
-                })
-
                 $("#form1").submit(function() {
                     var usertype = "";
                     $("input[name='usertype']").each(function() {
@@ -356,21 +337,12 @@ body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
                         $("input[name='password']").focus();
                         return false;
                     }
-                    $("input[name='password']").val($.base64.encode(password));
+                    $("input[name='password']").val(hex_md5(password));
                 })
             })
 
             function getrandomImg(username) {
-                var date = new Date().getTime();
-                $.getJSON("/randomKey.action?username=" + username + "&time=" + date,
-                function(msg) {
-                    var url = "/randomImage.action?k1=" + msg[0] + "&k2=" + msg[1] + "&uno=" + username + "&time=" + date;
-                    $("#key1").val(msg[0]);
-                    $("#key2").val(msg[1]);
-                    $("#random_img").attr("src", url);
-                    $("#yzm_msg").hide();
-                    $("#yzm_tr").show();
-                })
+                return;
             }
         </script>
     </head>
@@ -412,8 +384,7 @@ body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
                                             <!--表单开始-->
                                             <div class="bubble">
                                                 <div class="info" style="padding: 5px 5px 5px 5px;">
-                                                    <form name="form1" id="form1"
-                                                    method="post">
+                                                    <form name="form1" id="form1" method='get'>
                                                         <table>
                                                             <tbody>
                                                                 <tr>
@@ -481,51 +452,6 @@ body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
                 </tbody>
             </table>
         </div>
-        <!--POPUP START-->
-        <!--END POPUP-->
-        <script type="text/javascript">
-            $(document).ready(function() {
-                //When you click on a link with class of poplight and the href starts with a # 
-                $('a.poplight[href^=#]').click(function() {
-                    var popID = $(this).attr('rel'); //Get Popup Name
-                    var popURL = $(this).attr('href'); //Get Popup href to define size
-                    //Pull Query & Variables from href URL
-                    var query = popURL.split('?');
-                    var dim = query[1].split('&');
-                    var popWidth = dim[0].split('=')[1]; //Gets the first query string value
-                    //Fade in the Popup and add close button
-                    $('#' + popID).fadeIn().css({
-                        'width': Number(popWidth)
-                    }).prepend('<a href="#" class="close"><img src="/images/hub_index/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>');
-
-                    //Define margin for center alignment (vertical + horizontal) - we add 80 to the height/width to accomodate for the padding + border width defined in the css
-                    var popMargTop = ($('#' + popID).height() + 80) / 2;
-                    var popMargLeft = ($('#' + popID).width() + 80) / 2;
-
-                    //Apply Margin to Popup
-                    $('#' + popID).css({
-                        'margin-top': -popMargTop,
-                        'margin-left': -popMargLeft
-                    });
-
-                    //Fade in Background
-                    $('body').append('<div id="fade"></div>'); //Add the fade layer to bottom of the body tag.
-                    $('#fade').css({
-                        'filter': 'alpha(opacity=80)'
-                    }).fadeIn(); //Fade in the fade layer 
-                    return false;
-                });
-
-                //Close Popups and Fade Layer
-                $('a.close, #fade').on('click',
-                function() { //When clicking on the close or fade layer...
-                    $('#fade , .popup_block').fadeOut(function() {
-                        $('#fade, a.close').remove();
-                    }); //fade them both out
-                    return false;
-                });
-            });
-        </script>
     </body>
 
 </html>
