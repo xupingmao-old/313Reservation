@@ -25,3 +25,8 @@ def png_resource(request,fname):
 def js_resource(request,fname):
     text=open('WebOrdering/'+fname+'.js','rb').read()
     return HttpResponse(text)
+
+
+def about(request):
+    text=open('WebOrdering/about.html').read()
+    return HttpResponse(text)

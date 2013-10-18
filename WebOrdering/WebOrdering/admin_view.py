@@ -7,7 +7,7 @@ def admin(request):
     text=open('WebOrdering/admin_login.html').read()
     return HttpResponse(text)
 
-def admin_login(request,query):
+def admin_login(request):
     text=open('WebOrdering/admin_login.html').read()
     username,password='',''
     if 'username' in request.GET:

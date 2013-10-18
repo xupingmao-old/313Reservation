@@ -1,11 +1,6 @@
 from django.conf.urls import patterns, include, url
 from WebOrdering.home_view import *
-from WebOrdering.about_view import *
-from WebOrdering.register_view import *
-from WebOrdering.old_customer_view import *
-from WebOrdering.new_customer_view import *
-from WebOrdering.result_view import *
-from WebOrdering.submit_view import *
+from WebOrdering.customer_view import *
 from WebOrdering.admin_view import *
 
 # Uncomment the next two lines to enable the admin:
@@ -23,9 +18,16 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$',home),
+    url(r'^choose_food/$',choose_food),
     url(r'^about/$',about),
-	url(r'^login/admin/(.*)$',admin_login),
+	url(r'^login/admin/$',admin_login),
     url(r'^admin/(.*)$',admin_manage),
+    url(r'^submit/$',submit),
+    url(r'^check_submit/$',check_submit),
+    url(r'^new_customer/$',new_customer),
+    url(r'^old_customer/$',old_customer),
+    # check old old_customer or new_customer
+    url(r'^check_phone/$',check_phone),
     url(r'^(.*).js$',js_resource),
     url(r'^(.*).css$',css_resource),
     url(r'^(.*).gif$',gif_resource),
