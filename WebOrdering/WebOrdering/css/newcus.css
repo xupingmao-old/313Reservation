@@ -1,0 +1,24 @@
+/*.head_outer{
+	margin: 0px;
+	margin-right: auto;
+	margin-left: auto;
+}*/
+.head_text{
+	background-color:#3da3d0;
+	opacity: 0.6 ;	
+	border-style:solid;
+	border-color: #000000;
+	border-width: 2px;
+	position: absolute;
+	left: 50%;
+	margin-left: -100px;/*通过负边距实现居中*/
+	width: 200px;
+	text-align: center;
+	font-size: 40px;
+}
+
+.main_frame{
+	/*border-style: solid;
+	border-width: 2px;
+	border-color: #000000;*/
+}
