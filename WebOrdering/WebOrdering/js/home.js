@@ -16,4 +16,8 @@ $(function(){
 		$(this).removeClass();
 		$(this).addClass('pic_dark')
 	})
+	
+	$('#about').click(function(){
+		window.location.href='about';
+	})
 })
