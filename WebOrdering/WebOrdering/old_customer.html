@@ -1,1 +1,55 @@
-old_customer
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv='Content-Type' Content='text/html; charset=utf-8'>
+	<link rel="stylesheet" type="text/css" href="css/oldcus.css">
+	<script type="text/javascript" src='js/customer.js'></script>
+</head>
+
+<body>
+	<div class="head_text">开始订餐</div>
+	<div class='main_frame'>
+		<h2>*先生，欢迎再次光！</h2>
+		<div>
+			<p class='p_label' id='p_label_1'>
+				<label>联系电话:</label>
+				<table  id="table_1">
+					<tr>
+						<th class='uprow'>类型</th>
+						<th class='uprow'>电话号码</th>
+						<th class='uprow'>选择</th>
+						<th class='uprow'>删除</th>
+					</tr>
+					<tr>
+						<th>手机</th>
+						<th>************</th>
+						<th><input type="radio"></th>
+						<th>待添加</th>
+					</tr>
+				</table>
+				<button onclick='phoneAdd()'>新增</button>
+			</p>
+			<!-- <p class='p_label'> -->
+			<p class='p_label' id='p_label_2'>
+				<label>送餐地址:</label>
+				<table  table="table_2"> 
+					<tr>
+						<th class='uprow'>区域</th>
+						<th class='uprow'>地址</th>
+						<th class='uprow'>选择</th>
+						<th class='uprow'>删除</th>
+					</tr>
+					<tr></tr>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+				</table>
+				<button onclick=''>新增</button>
+				<p id='lasttxt'>送餐时间：成功提示后，40分钟左右送达</p>
+			</p>
+		</div>
+		<img class='enter_menu'/ src='img/nextstep.png'>
+	</div>
+</body>
+</html>
