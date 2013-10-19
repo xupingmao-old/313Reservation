@@ -13,17 +13,31 @@
 <div class='main_frame'>
 	<h2>欢迎您首次网上订餐，请填写以下信息：</h2>
 	<div >
-		<p class='p_label'>
+		<p class='p_label' id='p_label_1'>
 			<label>联系方式:</label>
-
+			<table class='table_1' border=1 >
+				<tr>
+					<th class='row_1' id='th_1'>类型</th>
+					<th class='row_1' id='th_2'>电话</th>
+					<th class='row_1' id='th_3'>选择</th>
+					<th class='row_1' id='th_4'>删除</th>
+				</tr>
+				<tr>
+					<th >手机</th>
+					<th >***********</th>
+					<th><input id='in_1' type='radio'></th>
+					<th><!-- <input id='in_2' type='submit'> --></th>
+				</tr>	
+			</table>
+			<button type='button'>新增</button>
 		</p>
 		<p class='p_label'>
 			<label>顾客姓名:</label>
-			<input class='in_1'>
+			<input id='in_3'><input type='radio' value='male' name='sex'><span>男</span><input type='radio' value='female' name='sex'><span>女</span>
 		</p>
 		<p class='p_label'>
 			<label>送餐地址:</label>
-			<input class='in_2'>
+			<input id='in_4'>
 			<span>（华科范围以内）</span>
 		</p>
 	</div>

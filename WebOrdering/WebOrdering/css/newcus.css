@@ -55,8 +55,12 @@
 }
 
 .p_label{
-	position: relative;
 	margin-top: 100px;
+
+}
+#p_label_1{
+	display: inline-block;
+	width: 400px;
 }
 
 label{
@@ -67,13 +71,41 @@ label{
 
 }
 
-.enter_menu{
-	position: relative;
-	text-align: right;
-	margin-right: 100px;
-	margin-bottom: 50px;
+
+
+
+.table_1{
+	display: inline-block;
+	vertical-align: bottom;
+	text-align: left;
 }
 
-.in_2{
-	width: 350px;
+#in_1{
+
+}	
+
+th{
+	border-right-color: #fff;
+}
+
+#in_4{
+	width: 300px;
+}
+
+/*the last few button*/
+.enter_menu{
+	position: relative;
+	left: 900px;
+	/*float: right;*/
+	/*margin-right: 100px;*/
+	margin-bottom: 50px;
+	text-align: center;
+	font-size: 30px;
+	color: yellow;
+	width:200px;
+	border-style: solid;
+	border-color: #000;
+	border-width: 2px;
+	background-color: gray;
+	cursor: pointer;
 }
