@@ -1,24 +1,79 @@
+@-webkit-keyframes 'fisheyes'{
+	0%{
+		-webkit-transform:scale(1);
+		background-color: #eee;
+		border-radius: 10px;
+	}
+	40%{
+		-webkit-transform: scale(1.5);
+		background-color: #bbb;
+		border-radius: 10px;
+	}
+	100%{
+		-webkit-transform: scale(1);
+		background-color: #eee;
+		border-radius: 10px;
+	}
+}
+
 /*.head_outer{
 	margin: 0px;
 	margin-right: auto;
 	margin-left: auto;
 }*/
 .head_text{
-	background-color:#3da3d0;
+	background-color:#eee;
 	opacity: 0.6 ;	
 	border-style:solid;
+	border-radius: 10px;
 	border-color: #000000;
 	border-width: 2px;
 	position: absolute;
 	left: 50%;
+	top:10px;
+	margin-top: 10px;
 	margin-left: -100px;/*通过负边距实现居中*/
 	width: 200px;
 	text-align: center;
 	font-size: 40px;
 }
-
+.head_text:hover{
+	-webkit-animation-name: 'fisheyes';
+	-webkit-animation-duration: 3s;
+	-webkit-animation-interation-count: infinite;
+	cursor: pointer;
+}
 .main_frame{
-	/*border-style: solid;
+	position: relative;
+	top: 70px;
+	bottom: 20px;
+	border-style: solid;
 	border-width: 2px;
-	border-color: #000000;*/
+	border-color: #000000;
+	
+
+}
+
+.p_label{
+	position: relative;
+	margin-top: 100px;
+}
+
+label{
+	position: relative;	
+	text-align: right;
+	margin-left: 100px;
+	font-size: 20px;
+
+}
+
+.enter_menu{
+	position: relative;
+	text-align: right;
+	margin-right: 100px;
+	margin-bottom: 50px;
+}
+
+.in_2{
+	width: 350px;
 }
