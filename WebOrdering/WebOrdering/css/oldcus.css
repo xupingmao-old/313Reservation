@@ -1,0 +1,122 @@
+/*first part : 开始点餐*/
+@-webkit-keyframes 'fisheyes'{
+	0%{
+		-webkit-transform:scale(1);
+		background-color: #FF8073;
+		border-radius: 10px;
+		opacity: 0.6 ;	
+	}
+	40%{
+		-webkit-transform: scale(1.5);
+		background-color: #FF1800;
+		border-radius: 10px;
+		opacity: 1 ;	
+	}
+	100%{
+		-webkit-transform: scale(1);
+		background-color: #FF8073;
+		border-radius: 10px;
+		opacity: 0.6 ;	
+	}
+}
+/*class sizer*/
+.head_text{
+	background-color:#FF1800;
+	opacity: 0.6 ;	
+	border-radius: 10px;
+	border-width: 2px;
+	position: absolute;
+	left: 50%;
+	top:10px;
+	margin-top: 10px;
+	margin-left: -100px;/*通过负边距实现居中*/
+	width: 200px;
+	text-align: center;
+	font-size: 40px;
+}
+.head_text:hover{
+	-webkit-animation-name: 'fisheyes';
+	-webkit-animation-duration: 3s;
+	-webkit-animation-interation-count: infinite;
+	cursor: pointer;
+}
+
+.main_frame{
+	position: relative;
+	top: 70px;
+	bottom: 20px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #000000;
+	
+
+}
+
+.p_label{
+	margin-top: 100px;
+
+}
+
+.enter_menu{
+	position: relative;
+	left: 900px;
+	/*float: right;*/
+	/*margin-right: 100px;*/
+	margin-bottom: 50px;
+	text-align: center;
+/*	font-size: 30px;*/
+	color: yellow;
+	/*width:200px;*/
+	/*border-style: solid;
+	border-color: #000;
+	border-width: 2px;*/
+	background-color: gray;
+	cursor: pointer;
+}
+
+.uprow{
+	background-color: #FF9D40;
+}
+
+
+
+
+label{
+	position: relative;	
+	text-align: right;
+	margin-left: 100px;
+	font-size: 20px;
+	display: inline-block;
+
+}
+
+table{
+	display: inline-block;
+	text-align: left;
+}
+
+button{
+	vertical-align: middle;
+}
+
+/*id sizer*/
+#p_label_1{
+	display: inline-block;
+	width: 400px;
+}
+#p_label_2{
+	display: inline-block;
+	width:400px;
+}
+#table_1{
+	vertical-align: bottom;
+
+}
+#table_2{
+	vertical-align: bottom;
+}
+
+#lasttxt{
+	position: relative;
+	left: 400px;
+}
