@@ -120,3 +120,15 @@ button{
 	position: relative;
 	left: 400px;
 }
+#span_1,#btn_1,#in_5{
+	visibility: collapse;
+}
+#in_5{
+	color: gray;
+}
+#span_2,#btn_2,#in_6{
+	visibility: collapse;
+}
+#in_6{
+	color: gray;
+}

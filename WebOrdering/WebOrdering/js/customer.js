@@ -17,7 +17,16 @@ function chooseCollapse()
 	b.style.visibility = "collapse";
 	c.style.visibility = "collapse";
 }
-function phoneShow()
+function chooseCollapse_2()
+{
+	var a = document.getElementById("span_2");
+	var b = document.getElementById("in_6");
+	var c = document.getElementById("btn_2");
+	a.style.visibility = "collapse";	
+	b.style.visibility = "collapse";
+	c.style.visibility = "collapse";
+}
+function phoneShow_new()
 {
 	var a = document.getElementById("span_1");
 	var b = document.getElementById("in_5");
@@ -50,3 +59,29 @@ function focusHide(b)
 	a.style.color = "black";
 
 }
+
+function phoneShow_old()
+{
+	var a = document.getElementById("span_1");
+	var b = document.getElementById("in_5");
+	var c = document.getElementById("btn_1");
+	var d = document.getElementById("in_7")
+	a.style.visibility = "visible";	
+	b.style.visibility = "visible";
+	c.style.visibility = "visible";
+	d.checked = false;
+}
+
+function phoneShow_old_2()
+{
+	var a = document.getElementById("span_2");
+	var b = document.getElementById("in_6");
+	var c = document.getElementById("btn_2");
+	var d = document.getElementById("in_7")
+	a.style.visibility = "visible";	
+	b.style.visibility = "visible";
+	c.style.visibility = "visible";
+	d.checked = false;
+}
+
+

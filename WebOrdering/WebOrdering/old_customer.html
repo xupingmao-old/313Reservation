@@ -23,11 +23,14 @@
 					<tr>
 						<th>手机</th>
 						<th>************</th>
-						<th><input type="radio"></th>
+						<th><input id="in_1" type="radio" onclick="chooseCollapse()"></th>
 						<th>待添加</th>
 					</tr>
 				</table>
-				<button onclick='phoneAdd()'>新增</button>
+				<button onclick='phoneShow_old()'>新增</button>
+				<span id="span_1">手机号：</span>
+				<input id="in_5" onfocus="focusHide('in_5')" onblur="blurShow('in_5')" value="请输入">
+				<button id="btn_1" type="button" >添加</button>
 			</p>
 			<!-- <p class='p_label'> -->
 			<p class='p_label' id='p_label_2'>
@@ -42,10 +45,13 @@
 					<tr></tr>
 						<th></th>
 						<th></th>
-						<th></th>
+						<th><input id="in_7" type="radio" onclick="chooseCollapse_2()"></th>
 						<th></th>
 				</table>
-				<button onclick=''>新增</button>
+				<button onclick='phoneShow_old_2()' >新增</button>
+				<span id="span_2">手机号：</span>
+				<input id="in_6" onfocus="focusHide('in_6')" onblur="blurShow('in_6')" value="请输入">
+				<button id="btn_2" type="button" >添加</button>
 				<p id='lasttxt'>送餐时间：成功提示后，40分钟左右送达</p>
 			</p>
 		</div>
