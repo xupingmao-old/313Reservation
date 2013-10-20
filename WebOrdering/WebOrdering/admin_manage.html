@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title></title>
+	<title>管理菜谱</title>
 	<style>
 		body{
 			margin:0;
@@ -15,45 +15,105 @@
 			float:left;
 			list-style:none;
 			padding-top:6px;
-			height:30px;
+			height:24px;
 			width:100px;
+			text-align:center;
 		}
 		a{
 			color:white;
 			text-decoration:none;
 		}
 
-		#food_list{
+		#food-list{
 			margin:0 auto;
 			background-color:#ccc;
 			width:960px;
 		}
+		#all{
+			margin:0 auto;
+			width:960;
+		}
+		#add-food{
+			margin-left:150px;
+			margin-top:50px;
+			//margin:0 auto;
+		}
+		.active-item{
+			background-color:#83bf73;
+		}
 	</style>
 </head>
 <body>
-
+<script src='../../js/jquery.min.js'></script>
+<script>
+$(function(){
+	$('#update-food').hide();
+	$('#food-list').show();
+	
+	$('.nav-item').click(function(){
+		$('.nav-item').removeClass('active-item')
+		$(this).addClass('active-item')
+		if($(this).text()=='添加新食物'){
+			$('#update-food').show();
+			$('#food-list').hide();
+		}else if($(this).text()=='已有食物'){
+			$('#update-food').hide();
+			$('#food-list').show();
+		}
+	})
+})
+</script>
 <div id='navigator'>
 <ul>
 	<li class='nav-item'><a href='/'>返回</a></li>
+	<li class='nav-item active-item'><a href='#'>已有食物</a></li>
+	<li class='nav-item'><a href='#'>添加新食物</a></li>
 	<li class='nav-item' style='float:right'><a href='#'>管理员：{{admin_name}}</a></li>
 </ul>
 </div>
 
-	<div>
-		<form method='post' enctype="multipart/form-data">
-			{% csrf_token %} 
-			<input type='file' value='upload' name='pic'/>
-			<input type='submit' value='submit' />
-		</form>
-	</div>
-
-	<div id='food_list'>
+<div id='all'>
+	<div id='food-list'>
 		<div class='food'>
-
-
+			<img src=''>
 		</div>
 	</div>
-
+	<div id='update-food'>
+		<form method='post' enctype="multipart/form-data">
+			{% csrf_token %} 
+			<table id='add-food'>
+			<tr>
+				<td>食物类别</td>
+				<td>
+					<select name='category'>
+						<option>超值套餐</option>
+						<option>经典盖饭</option>
+						<option>小吃点心</option>
+						<option>饮品</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>食物名称</td>
+				<td><input name='imagename' type='text' /></td>
+			</tr>
+			<tr>
+				<td>食物价格</td>
+				<td><input type='text' name='price'/></td>
+			</tr>
+			<tr>
+				<td>食物图片</td>
+				<td><input type='file' value='upload' name='pic'/></td>
+			</tr>
+			<tr>
+				<td>食物描述</td>
+				<td><textarea></textarea></td>
+			</tr>
+			</table>
+			<input type='submit' value='提交'/>
+		</form>
+	</div>
+</div>
 </body>
 
 </html>
