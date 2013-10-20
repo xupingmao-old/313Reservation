@@ -1,9 +1,10 @@
 from django.http import HttpResponse
 from django.template import Template,Context
+import sqlite3
 
 def home(request):
     text=open('WebOrdering/home.html').read()
-    foods=[('img/food1.jpg','apple'),('img/food1.jpg','google'),('img/food1.jpg','microsoft'),]
+    foods=get_food_list()
     return HttpResponse(Template(text).render(Context({'foods':foods})))
 
 def css_resource(request,fname):
@@ -30,3 +31,10 @@ def js_resource(request,fname):
 def about(request):
     text=open('WebOrdering/about.html').read()
     return HttpResponse(text)
+
+
+def get_food_list():
+    db=sqlite3.connect('WebOrdering/menu.db')
+    cur=db.cursor()
+    for foodid,foodname,foodimage,foodprice,category,introduce in cur.execute('select * from menu'):
+        yield (category,foodimage,foodname)

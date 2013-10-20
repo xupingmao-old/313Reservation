@@ -23,12 +23,6 @@
 			color:white;
 			text-decoration:none;
 		}
-
-		#food-list{
-			margin:0 auto;
-			background-color:#ccc;
-			width:960px;
-		}
 		#all{
 			margin:0 auto;
 			width:960;
@@ -41,6 +35,64 @@
 		.active-item{
 			background-color:#83bf73;
 		}
+		#food-list{
+			margin:0 auto;
+			//background-color:#ccc;
+			margin-top:20px;
+			width:960px;
+		}
+		.food{
+			height:220px;
+		}
+		img{
+			width:100%;
+			height:100%;
+		}
+		.food-img{
+			width:200px;
+			height:200px;
+			float:left;
+		}
+		.food-detail table{
+			padding-left:20;
+			padding-top:20px;
+		}
+		input[type='text']{
+			width:400px;
+		}
+		input[type='submit']{
+			 display: inline-block;
+			  vertical-align: top;
+			  position: relative;
+			  overflow: hidden;
+			  //line-height: 80px;
+			  padding: 0 0px;
+			  font-size: 20px;
+			  color: white;
+			  text-align: center;
+			  text-decoration: none;
+			  text-shadow: 0 1px #154c86;
+			  background-color: #3a6ea5;
+			  background-clip: padding-box;
+			  border: 1px solid;
+			  border-color: #1c65b2 #18589c #18589c;
+			  border-radius: 4px;
+			  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+			  box-shadow: inset 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+			  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+			  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+			  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+			  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+			  font-family: 微软雅黑;
+			  width:100px;
+			  margin-left:350;
+		}
+		input[type='submit']:hover {
+		  background-color: #1a74d3;
+		}
+		textarea{
+			width:400px;
+		}
 	</style>
 </head>
 <body>
@@ -49,6 +101,7 @@
 $(function(){
 	$('#update-food').hide();
 	$('#food-list').show();
+	$('#admin-manage').show();
 	
 	$('.nav-item').click(function(){
 		$('.nav-item').removeClass('active-item')
@@ -56,9 +109,37 @@ $(function(){
 		if($(this).text()=='添加新食物'){
 			$('#update-food').show();
 			$('#food-list').hide();
+			$('#admin-manage').hide();
 		}else if($(this).text()=='已有食物'){
 			$('#update-food').hide();
+			$('#admin-manage').hide();
 			$('#food-list').show();
+		}else if($(this).text().substr(0,3)=='管理员'){
+			$('#update-food').hide();
+			$('#admin-manage').show();
+			$('#food-list').hide();
+		}
+	})
+	
+	$('#form1').submit(function(){
+		var foodname=$('input[name="foodname"]').val()
+		var foodprice=$('input[name="foodprice"]').val()
+		var foodimage=$('input[type="file"]').val();
+		if(foodname==''){
+			alert('请输入食物名称');
+			return false;
+		}
+		if(foodprice==''){
+			alert('请输入食物价格');
+			return false;
+			if(isNaN(foodprice)){
+				alert('请输入有效食物价格');
+				return false;
+			}
+		}
+		if(foodimage==''){
+			alert('请上传食物图片')
+			return false;
 		}
 	})
 })
@@ -75,31 +156,53 @@ $(function(){
 <div id='all'>
 	<div id='food-list'>
 		<div class='food'>
-			<img src=''>
+		<div class='food-img'>
+			<img src='../../img/1382184081.1.jpg'>
+		</div>
+		<div class='food-detail'>
+			<table>
+				<tr>
+					<td>食物名称</td>
+					<td>呵呵</td>
+				</tr>
+				<tr>
+					<td>食物类别</td>
+					<td>超值套餐</td>
+				</tr>
+				<tr>
+					<td>食物价格</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>食物描述</td>
+					<td>无</td>
+				</tr>
+			</table>
+		</div>
 		</div>
 	</div>
 	<div id='update-food'>
-		<form method='post' enctype="multipart/form-data">
+		<form id='form1' method='post' enctype="multipart/form-data">
 			{% csrf_token %} 
 			<table id='add-food'>
 			<tr>
 				<td>食物类别</td>
 				<td>
 					<select name='category'>
-						<option>超值套餐</option>
-						<option>经典盖饭</option>
-						<option>小吃点心</option>
-						<option>饮品</option>
+						<option value='taocan'>超值套餐</option>
+						<option value='gaifan'>经典盖饭</option>
+						<option value='dianxin'>小吃点心</option>
+						<option value='yinpin'>饮品</option>
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<td>食物名称</td>
-				<td><input name='imagename' type='text' /></td>
+				<td><input name='foodname' type='text' /></td>
 			</tr>
 			<tr>
 				<td>食物价格</td>
-				<td><input type='text' name='price'/></td>
+				<td><input type='text' name='foodprice'/></td>
 			</tr>
 			<tr>
 				<td>食物图片</td>
@@ -107,11 +210,14 @@ $(function(){
 			</tr>
 			<tr>
 				<td>食物描述</td>
-				<td><textarea></textarea></td>
+				<td><textarea rows=10 name='introduce'></textarea></td>
 			</tr>
 			</table>
 			<input type='submit' value='提交'/>
 		</form>
+	</div>
+	<div id='admin-manage'>
+		管理员管理
 	</div>
 </div>
 </body>

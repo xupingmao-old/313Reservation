@@ -37,13 +37,13 @@
 		</div>
 		
 		<div id='foods'>
-		{%for url,food in foods%}
-			<div class='food'>
+		{%for category,url,name in foods%}
+			<div class='food' category='{{category}}'>
 				<div class='food_pic'>
 					<img class='pic_dark' src='{{url}}'/>
 				</div>
 				<div class='food_info'>
-					<span>{{food}}</span>
+					<span>{{name}}</span>
 				</div>
 			</div>
 		{%endfor%}

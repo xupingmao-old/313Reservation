@@ -11,7 +11,8 @@ import threading
 class MySession:
     def __init__(self):
         self._session={}
-        self.timeout=10
+        self.timeout=10 * 60 #seconds, 
+        self.sleeptime=20 #seconds, check frequency
         self.t=threading.Thread(target=self.check_timeout)
         self.t.start()
 
@@ -38,7 +39,7 @@ class MySession:
         while 1:
             self.del_timeout()
             print self._session
-            time.sleep(3)
+            time.sleep(self.sleeptime)
 
 
 my_session=MySession()
@@ -87,10 +88,21 @@ def admin_manage(request,username):
         extension=get_extension(pic)
         if extension:
             print pic,'uploaded'
-            fname=base+str(time.time())+extension
-            fp=open(fname,'wb')
+            fname=str(time.time())+extension
+            fullname=base+fname
+            fp=open(fullname,'wb')
             fp.write(pic.read())
             fp.close()
+            foodname=request.POST['foodname']
+            foodimage='img/'+fname
+            foodprice=float(request.POST['foodprice'])
+            category=request.POST['category']
+            if category not in ('taocan','gaifan','dianxin','yinpin'):
+                error='数据提交发生错误<br/><a href="/admin/'+username+'">返回</a>'
+                return HttpResponse(error)
+            introduce=request.POST['introduce']
+            print foodname,foodimage,foodprice,category,introduce
+            add_to_db(foodname,foodimage,foodprice,category,introduce)
             return HttpResponseRedirect('/admin/'+username)
     text=open('WebOrdering/admin_manage.html').read()
     return HttpResponse(Template(text).render(Context({'admin_name':username})))
@@ -109,14 +121,7 @@ def get_extension(name):
 
 def add_to_db(foodname,foodimage,foodprice,category,introduce):
     db=sqlite3.connect('WebOrdering/menu.db')
-    cur=db.cursor()
-    cur.execute("insert in menu values(%d,'%s','%s',%f,'%s','%s')",
-        int(time.time()),foodname,foodimage,foodprice,category,introduce)
-    cur.commit()
+    db.execute("insert into menu values(%d,'%s','%s',%f,'%s','%s')" %
+        (int(time.time()),foodname,foodimage,foodprice,category,introduce))
+    db.commit()
     db.close()
-
-def get_food_list():
-    db=sqlite3.connect('WebOrdering/menu.db')
-    cur=db.cursor()
-    for item in cur.execute('select * from menu'):
-        yield item
