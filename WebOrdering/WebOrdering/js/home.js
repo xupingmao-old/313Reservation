@@ -22,7 +22,9 @@ $(function(){
 	$('#about').click(function(){
 		window.location.href='about';
 	})
-	
+	$('#check_phone').click(function(){
+		window.location.href='check_phone';
+	})
 	$('#sidebar ul li').click(function(){
 		$('.food').hide();
 		if($(this).text()=='超值套餐'){

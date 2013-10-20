@@ -1,1 +1,89 @@
-check_phone
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>网上订餐</title>
+<link rel="stylesheet" href="../css/check_phone.css">
+<script src="../js/jquery.min.js"></script>
+<script src="../js/check_phone.js"></script>
+</head>
+
+<body>
+	<!--公共页面头-->
+	<form id="mainForm" name="startorderForm" action="" method="post">
+	<!--设置整体页面格式-->
+	<div class="con">
+
+		<!--导航栏-->
+		<div class="top">
+			<div id="logo_img"><img src="../img/home.jpg"></div>
+			<div id="admin"><span><a href="/login/admin">管理员</a></span></div>
+			<ul id="menu">
+				<li id="home">首页
+				</li>
+				<li class="active" id ="check_phone">开始订餐
+				</li>
+				<li id="about">订餐须知
+				</li>
+				<li>联系我们
+				</li>
+			</ul>
+		</div>
+		<div style='margin:0 auto;background-color:gray;width:960px;'>
+			<div id='dinner_time'>
+				<span>电话订餐 18607249516</span>
+				<span>    午餐 11:30-13:30</span>
+				<span>    晚餐 17:30-19:30</span>
+			</div>
+			</div>
+		<!--content 中间栏-->
+		<div id="content">
+
+			<!--中部登陆界面-->
+			<div class="login_content">
+			<!-- login_left 左侧表单 -->			   		 
+				<div class="login_form_left">
+					<div class="form_1">
+						<h3>请输入电子邮箱或手机</h3>
+						<p>
+						<input name="mobi" type="text" class="login_form_input">
+						</p>
+						<div id="submit">
+						<a href="#"">
+							<span>下一步</span></a>
+						</div>
+					</div>
+					
+				</div>
+			<!--login_middle 中部友情提示-->
+				<div class="login_form_middle" id="notes"><span id="ft_b">友情提示：</span>
+					          <ul>
+					            <li>如果您曾使用我们的订餐服务，请输入您上次使用的电子邮箱或手机号码。</li>
+					          </ul>
+				</div>
+
+			<!-- login_right 右侧用户须知 -->
+				<div class="login_form_right">
+					<div id="login_form_right_header">订单须知</div>
+					<div class="login_form_right_main">
+						<ul>
+							<li>1)产品和包装以实物为准，产品均加强检测，请放心食用；</li>
+							<li>2)为保证食物质量，肯德基宅急送设有送餐范围。若您的送餐地址超出送餐范围无法送餐，敬请谅解！建议您就近选择肯德基餐厅用餐；</li>
+							<li>3)订餐时间：10:00-22:00。部分地区已开通24小时送餐服务，详情请致电4008-823-823查询；</li>
+							<li>4)不设最低消费，每单收取统一外送费，谢绝小费。</li>
+							<li>5)如遭遇不可抗力因素，肯德基宅急送将暂时不提供相关服务，敬请谅解！</li>
+						</ul>
+					</div>
+					<div id="login_form_right_footer"></div>
+				</div>
+			
+		</div>
+
+		<!--footer 底部栏-->
+		<div id="footer">
+		    <ul>
+		      <li>版权所有 软工1105班 313室</li>
+		    </ul>
+		</div>
+	</div>
+ 
+
+</div></form></body></html>
