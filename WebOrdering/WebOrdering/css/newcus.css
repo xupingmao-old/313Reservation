@@ -56,40 +56,6 @@
 
 .p_label{
 	margin-top: 100px;
-
-}
-#p_label_1{
-	display: inline-block;
-	width: 400px;
-}
-
-label{
-	position: relative;	
-	text-align: right;
-	margin-left: 100px;
-	font-size: 20px;
-
-}
-
-
-
-
-.table_1{
-	display: inline-block;
-	vertical-align: bottom;
-	text-align: left;
-}
-
-#in_1{
-
-}	
-
-th{
-	border-right-color: #fff;
-}
-
-#in_4{
-	width: 300px;
 }
 
 /*the last few button*/
@@ -108,4 +74,55 @@ th{
 	border-width: 2px;
 	background-color: gray;
 	cursor: pointer;
+}
+#p_label_1{
+	display: inline-block;
+	width: 400px;
+}
+
+label{
+	position: relative;	
+	text-align: right;
+	margin-left: 100px;
+	font-size: 20px;
+
+}
+
+th{
+	border-right-color: #fff;
+}
+
+.table_1{
+	display: inline-block;
+	vertical-align: bottom;
+	text-align: left;
+}
+
+#in_1{
+
+}	
+
+#in_3{
+	color: gray;
+}
+
+#in_4{
+	width: 300px;
+	color: gray;
+}
+
+#span_1{
+	visibility: collapse;
+}
+
+#in_5{
+	color: gray;
+	visibility: collapse;
+}
+
+#btn_1{
+	visibility: collapse;
+}
+
+#table1{
 }

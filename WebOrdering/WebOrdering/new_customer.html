@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <link rel="stylesheet" type="text/css" href="css/newcus.css">
+<script type="text/javascript" src="js/customer.js"></script>
 </head>
 <body>
 
@@ -15,7 +16,7 @@
 	<div >
 		<p class='p_label' id='p_label_1'>
 			<label>联系电话:</label>
-			<table class='table_1' border=1 >
+			<table class='table_1'  id="table1" border=1 >
 				<tr>
 					<th class='row_1' id='th_1'>类型</th>
 					<th class='row_1' id='th_2'>电话</th>
@@ -24,20 +25,24 @@
 				</tr>
 				<tr>
 					<th >手机</th>
-					<th >***********</th>
-					<th><input id='in_1' type='radio'></th>
+					<th ></th>
+					<th><input id='in_1' type='radio'  onclick="chooseCollapse()" /></th>
 					<th><!-- <input id='in_2' type='submit'> --></th>
 				</tr>	
 			</table>
-			<button type='button'>新增</button>
+			<button  type='button' onclick="phoneShow()" >新增</button>
+			<span id="span_1">手机号：</span>
+			<input id="in_5" onfocus="focusHide('in_5')" onblur="blurShow('in_5')" value="请输入">
+			<button id="btn_1" type="button" >添加</button>
 		</p>
 		<p class='p_label'>
 			<label>顾客姓名:</label>
-			<input id='in_3'><input type='radio' value='male' name='sex'><span>男</span><input type='radio' value='female' name='sex'><span>女</span>
+			<input id='in_3' onfocus="focusHide('in_3')" onblur="blurShow('in_3')" value="请输入">
+			<input type='radio' value='male' name='sex'><span>男</span><input type='radio' value='female' name='sex'><span>女</span>
 		</p>
 		<p class='p_label'>
 			<label>送餐地址:</label>
-			<input id='in_4'>
+			<input id='in_4' onfocus="focusHide('in_4')" onblur="blurShow('in_4')" value="请输入">
 			<span>（华科范围以内）</span>
 		</p>
 	</div>
