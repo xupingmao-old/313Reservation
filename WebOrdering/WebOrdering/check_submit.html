@@ -1,1 +1,73 @@
-check_submit
+<html>
+
+<head>
+<title>提交界面</title>
+<!--<link rel='stylesheet' href='css/bootstrap.min.css'>-->
+<link rel='stylesheet' href='../css/check_submit.css'>
+<script src='../js/jquery.min.js'></script>
+<!--<script src='js/bootstrap.min.js'></script>-->
+<script src='../js/check_submit.js'></script>
+</head>
+<body>
+	<div id='navigator'>
+		<div id='logo_img'><img src='../img/home.jpg'/></div>
+		<div id='admin'><span><a href='/login/admin'>管理员</a></span></div>
+		<ul id='menu'>
+			<li class='active'>首页</li>
+			<li>开始订餐</li>
+			<li>订餐须知</li>
+			<li>联系我们</li>
+		</ul>
+	</div>
+	<div id='dinner_time'>
+		<span>电话订餐 18607249516</span>
+		<span>    午餐 11:30-13:30</span>
+		<span>    晚餐 17:30-19:30</span>
+	</div>
+	<ul id='purchases'>
+	<div class='login_contant_main'>
+		<div class='submit_order'>
+			<div class='submit_order_main'>
+				<div class='address_info'>
+					<span class='info_span_2'> 送餐信息</span>
+					  <p>
+					  	<span class='info_span_1'>顾客姓名：</span>
+					  	李XX先生
+					  </p>
+					  <p>
+					  	<span class='info_span_1'>送餐地址：</span>
+					  	华中XXXX大学
+					  </p>
+					<span class='info_span_2' style='padding:10px 0 0;'>联系信息</span>
+					<div style='height:35px;line-height:24px;position:relative margin-top:10px;'>
+						<span class='info_span_1'>联系电话：</span>
+						186********
+					</div>  
+				</div>
+			</div>
+			<div class='submit_order_main_info'>
+				<p class='time' style='margin:10px 0 20px;'>
+				  <span class='time_span_2'>送餐时间：</span>
+				  成功提交订单后，预计
+				  <span class='time_span_2'>40</span>
+				  分钟左右后到达。
+			<div class='total_price'>
+				<span class='time_span_2'>应付总价：XXX元</span>
+			</div>
+			<p class='btm'>
+				<input id='back_menu_bnt' type='button' class='backbtn'>
+				<input type='button' class='subbtn'>
+			</p>
+			<div class='submit_notes'>
+		       <p>友情提示：</p>
+		        <p>
+		         	点击"提交"后，您的订单会立即下到我们的餐厅开始制作食品，因此我们将无法接受修改或取消订单，请提交前仔细核对订单内容。
+	         	</p>
+	</div>
+			</div>
+		</div>
+	</div>
+	</ul>
+</body>
+
+</html>
