@@ -1,12 +1,12 @@
 body{
 	margin-top:0;
-	background:url(../../img/bg.jpg);
 }
 
 #navigator{
 	margin:0 auto;
 	width:960px;
 	height:100px;
+	background-color: #f37022;
 }
 #logo_img{
 	float:left;
@@ -38,11 +38,12 @@ body{
 	font-family:'微软雅黑';
 	font-size:20px;
 	text-align:center;
-	color:#fff3ff;
+	color:black;
 }
 
 #menu .active{
 	font-size:25px;
+	color: white;
 }
 #menu li:hover{
 	cursor:pointer;
@@ -64,17 +65,15 @@ body{
 	height:100%
 }
 
-.submit_order{
-	width:980px;
+.login_contant_main{
+	position:absolute;
+	top:22%;
+	left:14%;
+	border: 1px solid black;
+	padding:1em;
+	height:400px;
+	width:960px;
 	margin:0px auto;
-}
-
-.login_content_main{
-	background:;
-	min-height: 500px;
-	height: 100%;
-	-height: 500px;
-	width: 1000px;
 }
 
 .submit_order_main{
@@ -105,15 +104,11 @@ body{
     margin-right: 10px;
 }
 
-input{
-	vertical-align: middle;
-	font-family: "微软雅黑", Arial, Helvetica, sans-serif;
-}
 
 .total_price{
 	position: absolute;
-	top: 40%;
-	left:30%;
+	top:60%;
+	left:5%;
 	border:1px solid #000;
 	padding: 10px;
 	background-color: #fbf7eb;
@@ -132,8 +127,8 @@ input{
 .backbtn{
 	background:url(../../img/backbtn.png); 
 	position:absolute;
-	top:50%;
-	left:36%;
+	top:80%;
+	left:22%;
 	width:168px;
 	height: 38px;
 	border: 0;
@@ -142,8 +137,8 @@ input{
 .subbtn{
 	background:url(../../img/subbtn.png);
 	position:absolute;
-	top: 50%;
-    right:40%;
+	top: 80%;
+    right:25%;
 	width: 168px;
 	height: 38px;
 	border: 0;
@@ -153,8 +148,8 @@ input{
 
 .submit_notes {
 	position: absolute;
-	top:20%;
-	right:30%;
+	top:3%;
+	right:5%;
     float: right;
     background:rgba(255,255,0,0.4);
     border: 1px #866638 solid;

@@ -4,9 +4,17 @@ $(function(){
 		$(this).addClass('active');
 	})
 	
-	$('#sidebar li').click(function(){
-		$('#sidebar li').removeClass();
-		$(this).addClass('sidebar_active')
+	$('.login_form_input').click(function(){
+		$('#menu li').removeClass();
+		$(this).addClass('active');
+	})
+	
+	$('#check_phone').click(function(){
+		window.location.href='../check_phone';
+	})
+
+	$('#home').click(function(){
+		window.location.href='/';
 	})
 	
 })
