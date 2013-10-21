@@ -1,1 +1,72 @@
-submit
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>确认订单</title>
+<!--<link rel='stylesheet' href='css/bootstrap.min.css'>-->
+<link rel='stylesheet' href='css/submit.css'>
+<script src='js/jquery.min.js'></script>
+<!--<script src='js/bootstrap.min.js'></script>-->
+<script src='js/submit.js'></script>
+</head>
+<body>
+	<div id='navigator'>
+		<div id='logo_img'><img src='img/home.jpg'/></div>
+		<div id='admin'><span><a href='/login/admin'>管理员</a></span></div>
+		<ul id='menu'>
+			<li class='active'>首页</li>
+			<li>开始订餐</li>
+			<li>订餐须知</li>
+			<li>联系我们</li>
+		</ul>
+	</div>
+	<div style='margin:0 auto;background-color:gray;width:960px;'>
+		<div id='dinner_time'>
+		<span>电话订餐 18607249516</span>
+		<span>    午餐 11:30-13:30</span>
+		<span>    晚餐 17:30-19:30</span>
+	</div>
+	</div>
+	<!--详细内容区-->
+	<div id="content">
+	<div class='order_contant_main'>
+		<div class='confirmation_order'>
+			<!--导航条-->
+			<div class='confirmation_order_title'> 
+				<span>确认订单</span>
+			</div>
+			<div class="order_detail_1">
+				<table width="100%" border="1" class="order_detail_table">
+				<tbody><tr>
+						<th width="6%">序号</th>
+						<th width="15%">菜名</th>
+						<th width="9%">单价</th>
+						<th width="13%">数量</th>
+						<th width="9%">小计</th>
+						<th width="8%"><a href="javascript:;" id="clearProduct" style="color:#953c00;">全部取消</a></th>
+					</tr>	
+					{%for number,foodname,foodprice,amount,totalprice in orders%}
+						<tr>
+						<td width="6%">{{number}}</td>
+						<td width="15%">{{foodname}}</td>
+						<td width="9%">{{foodprice}}</td>
+						<td width="13%">{{amount}}</td>
+						<td width="9%">{{totalprice}}</td>
+						<td width="8%"><a href="javascript:;" id="clearProduct" style="color:#953c00;">取消</a></td>
+					</tr>
+					{%endfor%}		
+				</tbody>
+				</table>
+			</div>
+			<form id="form1" name="submitform"method="post">
+			<div class="twobutton">
+			<input type="button" class="home_backbtn">
+
+			<input id="step_pay" type="button" class="checksubmit_nextbtn">
+			</div>
+			</form>
+		</div>
+	</div>
+	</div>
+</body>
+
+</html>
