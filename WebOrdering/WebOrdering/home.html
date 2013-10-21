@@ -37,13 +37,14 @@
 		</div>
 		
 		<div id='foods'>
-		{%for category,url,name in foods%}
+		{%for category,url,name,foodprice,introduce in foods%}
 			<div class='food' category='{{category}}'>
 				<div class='food_pic'>
 					<img class='pic_dark' src='{{url}}'/>
 				</div>
 				<div class='food_info'>
-					<span>{{name}}</span>
+					<span>{{name}}</span><span>价格：{{foodprice}}</span>
+					<!--<span>介绍：{{introduce}}</span>-->
 				</div>
 			</div>
 		{%endfor%}

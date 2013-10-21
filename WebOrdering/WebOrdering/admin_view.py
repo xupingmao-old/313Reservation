@@ -82,7 +82,7 @@ def admin_manage(request,username):
             <a href="/">返回主页</a>
             '''
         return HttpResponse(text)
-    base='WebOrdering/img/'
+    base='WebOrdering/foodimage/'
     if request.FILES.has_key('pic'):
         pic=request.FILES['pic']
         extension=get_extension(pic)
@@ -94,7 +94,7 @@ def admin_manage(request,username):
             fp.write(pic.read())
             fp.close()
             foodname=request.POST['foodname']
-            foodimage='img/'+fname
+            foodimage='foodimage/'+fname
             foodprice=float(request.POST['foodprice'])
             category=request.POST['category']
             if category not in ('taocan','gaifan','dianxin','yinpin'):

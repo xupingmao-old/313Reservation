@@ -37,4 +37,4 @@ def get_food_list():
     db=sqlite3.connect('WebOrdering/menu.db')
     cur=db.cursor()
     for foodid,foodname,foodimage,foodprice,category,introduce in cur.execute('select * from menu'):
-        yield (category,foodimage,foodname)
+        yield (category,foodimage,foodname,foodprice,introduce)
