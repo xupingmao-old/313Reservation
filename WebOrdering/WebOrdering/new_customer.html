@@ -14,6 +14,7 @@
 	<h2>欢迎您首次网上订餐，请填写以下信息：</h2>
 	<div >
 		<p class='p_label' id='p_label_1'>
+			<div>
 			<label>联系电话:</label>
 			<table class='table_1'  id="table1" border=1 >
 				<tr>
@@ -25,7 +26,7 @@
 				<tr>
 					<th >手机</th>
 					<th ></th>
-					<th><input id='in_1' type='radio'  onclick="chooseCollapse()" /></th>
+					<th><form id="tel" name="tel"><input id='in_1' type='radio'  onclick="chooseCollapse()" /></form></th>
 					<th><!-- <input id='in_2' type='submit'> --></th>
 				</tr>	
 			</table>
@@ -33,15 +34,16 @@
 			<span id="span_1">手机号：</span>
 			<input id="in_5" onfocus="focusHide('in_5')" onblur="blurShow('in_5')" value="请输入">
 			<button id="btn_1" type="button" >添加</button>
+			</div>
 		</p>
 		<p class='p_label'>
 			<label>顾客姓名:</label>
-			<input id='in_3' onfocus="focusHide('in_3')" onblur="blurShow('in_3')" value="请输入">
-			<input type='radio' value='male' name='sex'><span>男</span><input type='radio' value='female' name='sex'><span>女</span>
+			<input id='in_3' form="tel" onfocus="focusHide('in_3')" onblur="blurShow('in_3')" value="请输入">
+			<input type='radio'  form="tel" value='male' name='sex'><span>男</span><input type='radio' form="tel" value='female' name='sex'><span>女</span>
 		</p>
 		<p class='p_label'>
 			<label>送餐地址:</label>
-			<input id='in_4' onfocus="focusHide('in_4')" onblur="blurShow('in_4')" value="请输入">
+			<input id='in_4' form="tel" onfocus="focusHide('in_4')" onblur="blurShow('in_4')" value="请输入">
 			<span>（华科范围以内）</span>
 		</p>
 	</div>

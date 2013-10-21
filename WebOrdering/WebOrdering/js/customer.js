@@ -65,7 +65,7 @@ function phoneShow_old()
 	var a = document.getElementById("span_1");
 	var b = document.getElementById("in_5");
 	var c = document.getElementById("btn_1");
-	var d = document.getElementById("in_7")
+	var d = document.getElementById("in_1")
 	a.style.visibility = "visible";	
 	b.style.visibility = "visible";
 	c.style.visibility = "visible";

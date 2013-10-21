@@ -11,6 +11,7 @@
 		<h2>*先生，欢迎再次光！</h2>
 		<div>
 			<p class='p_label' id='p_label_1'>
+				<div>
 				<label>联系电话:</label>
 				<table  id="table_1">
 					<tr>
@@ -22,7 +23,7 @@
 					<tr>
 						<th>手机</th>
 						<th>************</th>
-						<th><input id="in_1" type="radio" onclick="chooseCollapse()"></th>
+						<th><form id="tel"><input id="in_1" type="radio" onclick="chooseCollapse()"></form></th>
 						<th>待添加</th>
 					</tr>
 				</table>
@@ -30,9 +31,11 @@
 				<span id="span_1">手机号：</span>
 				<input id="in_5" onfocus="focusHide('in_5')" onblur="blurShow('in_5')" value="请输入">
 				<button id="btn_1" type="button" >添加</button>
+				</div>
 			</p>
 			<!-- <p class='p_label'> -->
 			<p class='p_label' id='p_label_2'>
+				<div>
 				<label>送餐地址:</label>
 				<table  table="table_2"> 
 					<tr>
@@ -49,8 +52,9 @@
 				</table>
 				<button onclick='phoneShow_old_2()' >新增</button>
 				<span id="span_2">手机号：</span>
-				<input id="in_6" onfocus="focusHide('in_6')" onblur="blurShow('in_6')" value="请输入">
+				<input id="in_6" form="tel" onfocus="focusHide('in_6')" onblur="blurShow('in_6')" value="请输入">
 				<button id="btn_2" type="button" >添加</button>
+				</div>
 				<p id='lasttxt'>送餐时间：成功提示后，40分钟左右送达</p>
 			</p>
 		</div>
