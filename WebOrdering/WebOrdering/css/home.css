@@ -90,7 +90,7 @@ body{
 #sidebar li:hover{
 	background-color:#b35d27;
 	color:white;
-	//-webkit-border-radius:5px;
+	/*-webkit-border-radius:5px;*/
 	cursor:pointer;
 }
 
@@ -101,6 +101,7 @@ body{
 
 #foods{
 	float:left;
+	width:580px;
 }
 
 .food{
@@ -138,4 +139,12 @@ body{
 
 .pic_show{
 	opacity:1
+}
+
+#order-box{
+	margin-top: 20;
+	width:200;
+	height:317;
+	background: #eeb5d7;
+	margin-left: 760;
 }
