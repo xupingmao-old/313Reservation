@@ -1,4 +1,7 @@
 from django.http import HttpResponse,HttpResponseRedirect
+from django.template import Template,Context
+import sqlite3
+
 
 def old_customer(request):
     text=open('WebOrdering/old_customer.html').read()
@@ -17,8 +20,9 @@ def submit(request):
     return HttpResponse(text)
 
 def check_submit(request):
+    user_dict={'name':'test','address':'16#313','phone':'12345678901','totalprice':50}
     text=open('WebOrdering/check_submit.html').read()
-    return HttpResponse(text)
+    return HttpResponse(Template(text).render(Context(user_dict)))
 
 def choose_food(request):
     text=open('WebOrdering/choose_food.html').read()

@@ -32,16 +32,16 @@
 					<span class='info_span_2'> 送餐信息</span>
 					  <p>
 					  	<span class='info_span_1'>顾客姓名：</span>
-					  	李XX先生
+					  	{{name}}
 					  </p>
 					  <p>
 					  	<span class='info_span_1'>送餐地址：</span>
-					  	华中XXXX大学
+					  	华中科技大学{{address}}
 					  </p>
 					<span class='info_span_2' style='padding:10px 0 0;'>联系信息</span>
 					<div style='height:35px;line-height:24px;position:relative margin-top:10px;'>
 						<span class='info_span_1'>联系电话：</span>
-						186********
+						{{phone}}
 					</div>  
 				</div>
 			</div>
@@ -52,7 +52,7 @@
 				  <span class='time_span_2'>40</span>
 				  分钟左右后到达。
 			<div class='total_price'>
-				<span class='time_span_2'>应付总价：XXX元</span>
+				<span class='time_span_2'>应付总价：{{totalprice}}元</span>
 			</div>
 			<p class='btm'>
 				<input id='back_menu_bnt' type='button' class='backbtn'>
