@@ -90,12 +90,13 @@ def admin_manage(request,username):
             print pic,'uploaded'
             fname=str(time.time())+extension
             fullname=base+fname
-            fp=open(fullname,'wb')
-            fp.write(pic.read())
-            fp.close()
             foodname=request.POST['foodname']
             foodimage='foodimage/'+fname
-            foodprice=float(request.POST['foodprice'])
+            try:
+                foodprice=float(request.POST['foodprice'])
+            except:
+                error ='数据提交发生错误:价格不是有效数字<br/><a href="/admin/'+username+'">返回</a>'
+                return HttpResponse(error)
             category=request.POST['category']
             if category not in ('taocan','gaifan','dianxin','yinpin'):
                 error='数据提交发生错误<br/><a href="/admin/'+username+'">返回</a>'
@@ -103,6 +104,9 @@ def admin_manage(request,username):
             introduce=request.POST['introduce']
             print foodname,foodimage,foodprice,category,introduce
             add_to_db(foodname,foodimage,foodprice,category,introduce)
+            fp=open(fullname,'wb')
+            fp.write(pic.read())
+            fp.close()
             return HttpResponseRedirect('/admin/'+username)
     text=open('WebOrdering/admin_manage.html').read()
     return HttpResponse(Template(text).render(Context({'admin_name':username})))
