@@ -84,4 +84,6 @@ function phoneShow_old_2()
 	d.checked = false;
 }
 
-
+function home () {
+	window.location.href="/";
+}
