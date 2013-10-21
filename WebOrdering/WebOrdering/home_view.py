@@ -3,6 +3,11 @@ from django.template import Template,Context
 import sqlite3
 
 def home(request):
+    if request.GET.has_key('page'):
+        page=request.GET['page']
+        if page=='new_customer':
+            text=open('WebOrdering/new_customer.html').read()
+            return HttpResponse(text)
     text=open('WebOrdering/home.html').read()
     foods=get_food_list()
     return HttpResponse(Template(text).render(Context({'foods':foods})))
