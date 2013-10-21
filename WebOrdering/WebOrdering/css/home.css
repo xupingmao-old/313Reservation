@@ -148,3 +148,18 @@ body{
 	background: #eeb5d7;
 	margin-left: 760;
 }
+
+#submit a span{
+	margin-top:100px;
+	margin-left:50px;
+	width:100px;
+	background-position: 100% -31px;
+	color: red;
+	float: none;
+	display: block;
+	background: url(/img/blue.jpg) no-repeat right top;
+	padding: 6px 6px 6px 3px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 18px;
+}

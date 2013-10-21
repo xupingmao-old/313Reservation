@@ -40,4 +40,8 @@ $(function(){
 			$('.food[category="yinpin"]').show();
 		}
 	})
+	
+	$('#submit').click(function(){
+		window.location.href='/check_phone';
+	})
 })
