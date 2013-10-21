@@ -10,7 +10,7 @@ $(function(){
 	})
 	
 	$('#check_phone').click(function(){
-		window.location.href='../check_phone';
+		window.location.href='/check_phone';
 	})
 
 	$('#home').click(function(){
@@ -19,14 +19,13 @@ $(function(){
 	
 })
 
-function addLoadEvent (func) {
-	var oldonload = window.oldload;
-	if (typeof window.onload != 'function') {
-		window.onload = func;
-	}else{
-		window.onload = function({
-			oldonload();
-			func();
-		}
-	}
+function showSection (id) {
+	var sections = document.getElementsByTagNames("sections");
+	for (var i=0;i<sections.length;i++){
+		if (sections[i].getAttribute("id") != id){
+		sections[i].style.dispaly = "none";
+	    }else{
+		sections[i].style.dispaly = "block";
+	    }
+    }
 }
