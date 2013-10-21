@@ -1,0 +1,148 @@
+body{
+	margin-top:0;
+}
+
+#navigator{
+	margin:0 auto;
+	width:960px;
+	height:100px;
+	background-color:#f37022;
+}
+#menu{
+	margin-left:200px;
+}
+#logo_img{
+	float:left;
+	width:200px;
+	height:100%;
+}
+#admin span{
+	float:left;
+	width:100px;
+	height:20px;
+	margin-top:10px;
+	margin-left:600px;
+	font-size:20;
+	font-family:微软雅黑;
+}
+#logo_img img{
+	width:100%;
+	height:100%;
+}
+
+#menu li{
+	float:left;
+	width:150px;
+	margin-top:20px;
+	font-family:'微软雅黑';
+	font-size:20px;
+	text-align:center;
+	color:black;
+}
+#menu .active{
+	font-size:25px;
+	color:white;
+}
+#menu li:hover{
+	cursor:pointer;
+	color:white;
+	font-size:25px;
+}
+#dinner_time{
+	margin:0 auto;
+	width:600px;
+	height:40px;
+}
+
+#dinner_time span{
+	color:white;
+	float:left;
+	padding-top:10px;
+	width:200px;
+	height:100%;
+	font-size:16px;
+}
+
+#content{
+width: 1001px;
+margin: 5px auto 12px auto;
+}
+.order_contant_main{
+min-height: 380px;
+height: 100%;
+width: 960px;
+margin-top: 20px;
+}
+.confirmation_order{
+width: 960px;
+margin: 0px auto;
+min-height: 305px;
+padding:20px;
+border: 1px rgb(0,0,0) solid;
+}
+.confirmation_order_title{
+width: 977px;
+margin: -10px 0 0;
+padding: 2px 0 5px;
+border-bottom: 1px #E5CCC3 solid;
+position: relative;
+text-align:center;
+z-index: 100;
+}
+.confirmation_order_title span{
+	color: #000;
+	font-size: 25px;
+	font-weight: bold;
+	font-family: "微软雅黑";
+}
+.order_detail_1{
+}
+.order_detail_table, .order_detail_table td, .order_detail_table th {
+border-width: 0;
+border-bottom: 1px #E8D4C7 solid;
+}
+.order_detail_table {
+width: 100%;
+margin-top: 5px;
+border-collapse: collapse;
+}
+
+tbody {
+display: table-row-group;
+vertical-align: middle;
+border-color: inherit;
+}
+.order_detail_table th {
+height: 30px;
+background: #F8F1ED;
+border-right: 1px #E5CCC3 solid;
+color: #953C00;
+font-size: 12px;
+font-weight: bold;
+text-align: center;
+border-bottom: 1px #E8D4C7 solid;
+}
+
+.twobutton{
+margin-top: 35px;
+text-align: center;
+}
+input {
+vertical-align: middle;
+font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+}
+.home_backbtn{
+background: url(../img/backbtn.png) no-repeat;
+width: 168px;
+height: 38px;
+border: 0;
+cursor: pointer;
+}
+.checksubmit_nextbtn{
+background: url(../img/nextstep.png) no-repeat;
+width: 168px;
+height: 38px;
+border: 0;
+cursor: pointer;
+margin-left: 100px;
+}
