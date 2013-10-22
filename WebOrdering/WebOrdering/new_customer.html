@@ -1,16 +1,30 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+
 <link rel="stylesheet" href="../css/newcus.css">
 <script type="text/javascript" src="../js/customer.js"></script>
 </head>
 <body>
+    <div id='navigator'>
+		<div id='logo_img'><img src='img/home.jpg'/></div>
+		<div id='admin'><span><a href='/login/admin'>管理员</a></span></div>
+		<ul id='menu'>
+			<li>首页</li>
+			<li id="check_phone" class='active'>开始订餐</li>
+			<li id='about'>订餐须知</li>
+			<li>联系我们</li>
+		</ul>
+	</div>
+	<div style='margin:0 auto;background-color:gray;width:960px;'>
+	<div id='dinner_time'>
+		<span>电话订餐 18607249516</span>
+		<span>    午餐 11:30-13:30</span>
+		<span>    晚餐 17:30-19:30</span>
+	</div>
+	</div>
 
 
-	<div class="head_text">开始订餐</div>
-
-
-<div class='main_frame'>
+    <div class='main_frame'>
 	<h2>欢迎您首次网上订餐，请填写以下信息：</h2>
 	<div >
 	<form name='form1' id='form1' >
@@ -19,16 +33,6 @@
 			<label>联系电话:</label>
 			<input type='text' value='{{phone}}'/>
 			</div>
-			<script>
-			/*
-				phone = document.getElementById('in_5')
-				href=window.location.href
-				startpos=href.indexOf('phone')
-				endpos=href.length
-				text=href.substring(startpos,endpos)
-				phone.value=text.substring(6,text.length);
-				*/
-			</script>
 		</p>
 		<p class='p_label'>
 			<label>顾客姓名:</label>
