@@ -17,35 +17,22 @@
 		<p class='p_label' id='p_label_1'>
 			<div>
 			<label>联系电话:</label>
-			<!--
-			<table class='table_1'  id="table1" border=1 >
-				<tr>
-					<th class='row_1' id='th_1'>类型</th>
-					<th class='row_1' id='th_2'>电话</th>
-					<th class='row_1' id='th_3'>选择</th>
-					<th class='row_1' id='th_4'>删除</th>
-				</tr>
-				<tr>
-					<th >手机</th>
-					<th ></th>
-<<<<<<< HEAD
-					<th><input id='in_1' type='radio'  onclick="chooseCollapse()" /></th>
-					<th> <input id='in_2' type='submit'></th>
-=======
-					<th><form id="tel" name="tel"><input id='in_1' type='radio'  onclick="chooseCollapse()" /></form></th>
-					<th><!-- <input id='in_2' type='submit'>
-				</tr>	
-			</table>
-			-->
-			<input type='text'/>
-			<span id="span_1">手机号：</span>
-			<input id="in_5" onfocus="focusHide('in_5')" name='phone' onblur="blurShow('in_5')" value="请输入">
-			<button id="btn_1" type="button" >添加</button>
+			<input type='text' value='{{phone}}'/>
 			</div>
+			<script>
+			/*
+				phone = document.getElementById('in_5')
+				href=window.location.href
+				startpos=href.indexOf('phone')
+				endpos=href.length
+				text=href.substring(startpos,endpos)
+				phone.value=text.substring(6,text.length);
+				*/
+			</script>
 		</p>
 		<p class='p_label'>
 			<label>顾客姓名:</label>
-			<input id='in_3' onfocus="focusHide('in_3')" onblur="blurShow('in_3')" name='name' value="请输入">
+			<input id='in_3' onfocus="focusHide('in_3')" onblur="blurShow('in_3')" name='name' placeholder='请输入'>
 			<input type='radio' value='male' name='sex'><span>男</span><input type='radio' value='female' name='sex'><span>女</span>
 		</p>
 		<p class='p_label'>

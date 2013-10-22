@@ -4,20 +4,28 @@ import sqlite3
 
 
 def old_customer(request):
+    if request.GET.has_key('phone'):
+        phone = request.GET['phone']
+        text = open('WebOrdering/old_customer.html').read()
+        return HttpResponse(Template(text).render(Context({'phone':phone})))
     text=open('WebOrdering/old_customer.html').read()
     return HttpResponse(text)
 
 def new_customer(request):
+    if request.GET.has_key('phone'):
+        phone = request.GET['phone']
+        text = open('WebOrdering/new_customer.html').read()
+        return HttpResponse(Template(text).render(Context({'phone':phone})))
     text=open('WebOrdering/new_customer.html').read()
     return HttpResponse(text)
 
 def check_phone(request):
     if request.POST.has_key('mobi'):
-        name=request.POST['mobi']
-        if is_old_customer(name):
-            return HttpResponseRedirect('/old_customer')
+        phone=request.POST['mobi']
+        if is_old_customer(phone):
+            return HttpResponse('/old_customer')
         else:
-            return HttpResponseRedirect('/new_customer')
+            return HttpResponseRedirect('/new_customer?phone='+phone)
     text=open('WebOrdering/check_phone.html').read()
     return HttpResponse(text)
 
@@ -34,5 +42,10 @@ def choose_food(request):
     text=open('WebOrdering/choose_food.html').read()
     return HttpResponse(text)
 
-def is_old_customer(name):
-    return False
+def is_old_customer(phone):
+    db = sqlite3.connect('WebOrdering/user.db')
+    cur = db.cursor()
+    cur.execute("select * from user where telephone='%s'" % phone)
+    data = cur.fetchone()
+    db.close()
+    return data

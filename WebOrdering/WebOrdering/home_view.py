@@ -43,3 +43,4 @@ def get_food_list():
     cur=db.cursor()
     for foodid,foodname,foodimage,foodprice,category,introduce in cur.execute('select * from menu'):
         yield (category,foodimage,foodname,foodprice,introduce)
+    db.close()
