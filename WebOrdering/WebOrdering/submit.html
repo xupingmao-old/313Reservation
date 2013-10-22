@@ -40,17 +40,17 @@
 						<th width="6%">序号</th>
 						<th width="15%">菜名</th>
 						<th width="9%">单价</th>
-						<th width="13%">数量</th>
+						<!--<th width="13%">数量</th>-->
 						<th width="9%">小计</th>
 						<th width="8%"><a href="javascript:;" id="clearProduct" style="color:#953c00;">全部取消</a></th>
 					</tr>	
-					{%for number,foodname,foodprice,amount,totalprice in orders%}
+					{%for number,foodname,foodimage,foodprice,category,introduce in orders%}
 						<tr>
 						<td width="6%">{{number}}</td>
 						<td width="15%">{{foodname}}</td>
 						<td width="9%">{{foodprice}}</td>
-						<td width="13%">{{amount}}</td>
-						<td width="9%">{{totalprice}}</td>
+						<!--<td width="13%">{{amount}}</td>-->
+						<td width="9%">{{foodprice}}</td>
 						<td width="8%"><a href="javascript:;" id="clearProduct" style="color:#953c00;">取消</a></td>
 					</tr>
 					{%endfor%}		

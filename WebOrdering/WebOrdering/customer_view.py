@@ -31,7 +31,11 @@ def check_phone(request):
 
 def submit(request):
     text=open('WebOrdering/submit.html').read()
-    return HttpResponse(text)
+    if request.GET.has_key('food_list'):
+        food_list=request.GET['food_list']
+        food_list=food_list.split(',')
+        return HttpResponse(Template(text).render(Context({'orders':get_order_list(food_list)})))
+    return HttpResponse(Template(text).render(Context(None)))
 
 def check_submit(request):
     user_dict={'name':'test','address':'16#313','phone':'12345678901','totalprice':50}
@@ -49,3 +53,11 @@ def is_old_customer(phone):
     data = cur.fetchone()
     db.close()
     return data
+
+def get_order_list(food_list):
+    db=sqlite3.connect('WebOrdering/menu.db')
+    cur=db.cursor()
+    for item in food_list:
+        rs=cur.execute("select * from menu where foodname='%s'" % item)
+        yield rs.fetchone()
+    db.close()

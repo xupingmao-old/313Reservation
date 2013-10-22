@@ -149,7 +149,7 @@ body{
 	margin-left: 760;
 }
 
-#submit a span{
+.order-btn{
 	margin-top:100px;
 	margin-left:50px;
 	width:100px;
@@ -162,4 +162,12 @@ body{
 	font-weight: bold;
 	text-align: center;
 	font-size: 18px;
+}
+
+.item{
+	width:100%;
+	height:50px;
+	margin-bottom: 5;
+	background: #ccc;
+	cursor:pointer;
 }

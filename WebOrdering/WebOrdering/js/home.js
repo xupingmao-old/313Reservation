@@ -1,4 +1,6 @@
 $(function(){
+
+	food_list=[];
 	$('.food').hide();
 	$('.food[category="taocan"]').show();
 	$('#menu li').click(function(){
@@ -41,7 +43,37 @@ $(function(){
 		}
 	})
 	
-	$('#submit').click(function(){
-		window.location.href='/check_phone';
+	if($('#user_name').val()!=''){
+		$('#start').hide();
+		$('#selected-food').show();
+
+	}else{
+		$('#selected-food').hide();
+		$('#order').hide()
+		$('#start').show();
+		$('#start').click(function(){
+			window.location.href='/check_phone';
+		})
+	}
+	
+	$('.food').click(function(){
+		var div=document.createElement('div')
+		div.innerHTML='名称：'+$(this).attr('foodname');
+		div.className='item'
+		$('#selected-food')[0].appendChild(div);
+		$('.item').click(function(){
+			$('#selected-food')[0].removeChild($(this)[0]);
+		})
+		
+		food_list=[]
+		var foods=$('.item')
+		var len=foods.length
+		for(var i=0;i<len;i++){
+			food_list.push(foods[i].innerHTML.substring(3,foods[i].length));
+		}
+	})
+	
+	$('#order').click(function(){
+		window.location.href='/submit?food_list='+food_list;
 	})
 })

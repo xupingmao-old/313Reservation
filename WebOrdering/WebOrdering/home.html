@@ -38,7 +38,7 @@
 		
 		<div id='foods'>
 		{%for category,url,name,foodprice,introduce in foods%}
-			<div class='food' category='{{category}}'>
+			<div class='food' foodname='{{name}}' category='{{category}}'>
 				<div class='food_pic'>
 					<img class='pic_dark' src='{{url}}'/>
 				</div>
@@ -51,10 +51,18 @@
 		</div>
 		<div id='order-box'>
 			<div style="margin-left:70px;font-family:'微软雅黑';">购物车</div>
-			<div id="submit">
+			<input id='user_name' type='text' style='display:none' value='{{user_name}}' />
+			<div id="start">
 						<a href="#">
-							<span>开始订餐</span></a>
-						</div>
+							<span class='order-btn'>开始订餐</span></a>
+			</div>
+			<div id='selected-food'>
+			</div>
+			<div id='order'>
+			<a href='#'>
+			<span class='order-btn' style='margin-top:5'>提交订单</span>
+			</a>
+			</div>
 		</div>
 	</div>
 </body>

@@ -10,7 +10,11 @@ def home(request):
             return HttpResponse(text)
     text=open('WebOrdering/home.html').read()
     foods=get_food_list()
-    return HttpResponse(Template(text).render(Context({'foods':foods})))
+    if request.GET.has_key('user_name'):
+        user_name=request.GET['user_name']
+    else:
+        user_name=''
+    return HttpResponse(Template(text).render(Context({'foods':foods,"user_name":user_name})))
 
 def css_resource(request,fname):
     text=open('WebOrdering/'+fname+'.css').read()
