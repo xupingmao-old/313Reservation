@@ -108,16 +108,17 @@ body{
 
 }
 
-h1 {
-  font-family: "Georgia","Times New Roman",sans-serif;
-  font: 2.0em normal;
-}
-h2 {
+#content h1 {
   font-family: "Georgia","Times New Roman",sans-serif;
   font: 2.0em normal;
   margin-top: 1em;
 }
-h3 {
+#content h2 {
+  font-family: "Georgia","Times New Roman",sans-serif;
+  font: 2.0em normal;
+  margin-top: 1em;
+}
+#content h3 {
   font-family: "Georgia","Times New Roman",sans-serif;
   font: 2.0em normal;
   margin-top: 1em;
