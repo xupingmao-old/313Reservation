@@ -155,31 +155,54 @@ $(function(){
 
 <div id='all'>
 	<div id='food-list'>
+	{%for category,url,name,foodprice,introduce in foods%}
 		<div class='food'>
 		<div class='food-img'>
-			<img src='../../img/1382184081.1.jpg'>
+			<img src='../../{{url}}'>
 		</div>
 		<div class='food-detail'>
 			<table>
 				<tr>
 					<td>食物名称</td>
-					<td>呵呵</td>
+					<td>{{name}}</td>
 				</tr>
 				<tr>
 					<td>食物类别</td>
-					<td>超值套餐</td>
+					<td class='category'>{{category}}</td>
 				</tr>
 				<tr>
 					<td>食物价格</td>
-					<td>20</td>
+					<td>{{foodprice}}</td>
 				</tr>
 				<tr>
 					<td>食物描述</td>
-					<td>无</td>
+					<td>{{introduce}}</td>
 				</tr>
 			</table>
 		</div>
 		</div>
+		{%endfor%}
+		<script>
+			$(function(){
+				var categories = $('.category')
+				var len = categories.length
+				for(var i = 0; i < len; i++){
+					var category=categories[i];
+					if(category.innerHTML=='taocan'){
+						category.innerHTML='超值套餐'
+					}
+					if(category.innerHTML=='gaifan'){
+						category.innerHTML='经典盖饭'
+					}
+					if(category.innerHTML=='dianxin'){
+						category.innerHTML='小吃点心'
+					}
+					if(category.innerHTML=='yinpin'){
+						category.innerHTML='饮品'
+					}
+				}
+			})
+		</script>
 	</div>
 	<div id='update-food'>
 		<form id='form1' method='post' enctype="multipart/form-data">
