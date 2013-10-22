@@ -15,5 +15,10 @@ $(function(){
 	$('#home').click(function(){
 		window.location.href='/';
 	})
+	
+	$('.subbtn').click(function(){
+		alert('订餐成功!')
+		window.location.href='/';
+	})
 })
 
