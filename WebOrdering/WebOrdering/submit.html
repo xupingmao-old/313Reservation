@@ -50,7 +50,7 @@
 						<td width="15%">{{foodname}}</td>
 						<td width="9%">{{foodprice}}</td>
 						<!--<td width="13%">{{amount}}</td>-->
-						<td width="9%">{{foodprice}}</td>
+						<td class='price' width="9%">{{foodprice}}</td>
 						<td width="8%"><a href="javascript:;" id="clearProduct" style="color:#953c00;">取消</a></td>
 					</tr>
 					{%endfor%}		
@@ -59,7 +59,7 @@
 			</div>
 			<form id="form1" name="submitform"method="post">
 			<div class="twobutton">
-			<input type="button" class="home_backbtn">
+			<input id='back' type="button" class="home_backbtn">
 
 			<input id="step_pay" type="button" class="checksubmit_nextbtn">
 			</div>

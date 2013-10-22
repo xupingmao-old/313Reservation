@@ -74,6 +74,9 @@ $(function(){
 	})
 	
 	$('#order').click(function(){
-		window.location.href='/submit?food_list='+food_list;
+		var temp=window.location.href
+		var startpos=temp.indexOf('user_name')
+		temp=temp.substring(startpos,temp.length);
+		window.location.href='/submit?food_list='+food_list+'&'+temp;
 	})
 })

@@ -1,3 +1,5 @@
+#-*- coding:utf-8 -*-
+
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import Template,Context
 import sqlite3
@@ -6,17 +8,29 @@ import sqlite3
 def old_customer(request):
     if request.GET.has_key('phone'):
         phone = request.GET['phone']
+        name=request.GET['phone']
+        address=request.GET['address']
+        sex=request.GET['sex']
         text = open('WebOrdering/old_customer.html').read()
         return HttpResponse(Template(text).render(Context({'phone':phone})))
     text=open('WebOrdering/old_customer.html').read()
     return HttpResponse(text)
 
 def new_customer(request):
+    if request.POST.has_key('phone'):
+        phone = request.POST['phone']
+        name=request.POST['name']
+        address=request.POST['address']
+        sex=request.POST['sex']
+        return HttpResponseRedirect('/?user_name='+name+'&phone='+phone+'&address='+address+'&sex='+sex)
+    text=open('WebOrdering/new_customer.html').read()
     if request.GET.has_key('phone'):
         phone = request.GET['phone']
-        text = open('WebOrdering/new_customer.html').read()
+        # name=request.GET['phone']
+        # address=request.GET['address']
+        # sex=request.GET['sex']
+        # return HttpResponseRedirect('/?user_name='+name)
         return HttpResponse(Template(text).render(Context({'phone':phone})))
-    text=open('WebOrdering/new_customer.html').read()
     return HttpResponse(text)
 
 def check_phone(request):
@@ -38,9 +52,20 @@ def submit(request):
     return HttpResponse(Template(text).render(Context(None)))
 
 def check_submit(request):
-    user_dict={'name':'test','address':'16#313','phone':'12345678901','totalprice':50}
-    text=open('WebOrdering/check_submit.html').read()
-    return HttpResponse(Template(text).render(Context(user_dict)))
+    if request.GET.has_key('name'):
+        name=request.GET['name']
+        address=request.GET['address']
+        phone=request.GET['phone']
+        totalprice=request.GET['totalprice']
+        user_dict={'name':name,'address':address,'phone':phone,'totalprice':totalprice}
+        text=open('WebOrdering/check_submit.html').read()
+        return HttpResponse(Template(text).render(Context(user_dict)))
+    else:
+        error='''
+            <h1>提交错误</h1>
+            <a href="/">返回主页</a>
+        '''
+        return HttpResponse(error)
 
 def choose_food(request):
     text=open('WebOrdering/choose_food.html').read()

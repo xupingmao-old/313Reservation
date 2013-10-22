@@ -27,17 +27,17 @@
     <div class='main_frame'>
 	<h2>欢迎您首次网上订餐，请填写以下信息：</h2>
 	<div >
-	<form name='form1' id='form1' >
+	<form name='form1' id='form1' action='' method='post'>
 		<p class='p_label' id='p_label_1'>
 			<div>
 			<label>联系电话:</label>
-			<input type='text' value='{{phone}}'/>
+			<input name='phone' type='text' value='{{phone}}'/>
 			</div>
 		</p>
 		<p class='p_label'>
 			<label>顾客姓名:</label>
 			<input id='in_3' onfocus="focusHide('in_3')" onblur="blurShow('in_3')" name='name' placeholder='请输入'>
-			<input type='radio' value='male' name='sex'><span>男</span><input type='radio' value='female' name='sex'><span>女</span>
+			<input type='radio' value='male' name='sex' checked='true'><span>男</span><input type='radio' value='female' name='sex'><span>女</span>
 		</p>
 		<p class='p_label'>
 			<label>送餐地址:</label>
