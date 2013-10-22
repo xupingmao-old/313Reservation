@@ -1,51 +1,76 @@
-@-webkit-keyframes 'fisheyes'{
-	0%{
-		-webkit-transform:scale(1);
-		background-color: #eee;
-		border-radius: 10px;
-	}
-	40%{
-		-webkit-transform: scale(1.5);
-		background-color: #bbb;
-		border-radius: 10px;
-	}
-	100%{
-		-webkit-transform: scale(1);
-		background-color: #eee;
-		border-radius: 10px;
-	}
+body{
+	margin-top:0;
 }
 
-/*.head_outer{
-	margin: 0px;
-	margin-right: auto;
-	margin-left: auto;
-}*/
-.head_text{
-	background-color:#eee;
-	opacity: 0.6 ;	
-	border-style:solid;
-	border-radius: 10px;
-	border-color: #000000;
-	border-width: 2px;
-	position: absolute;
-	left: 50%;
-	top:10px;
-	margin-top: 10px;
-	margin-left: -100px;/*通过负边距实现居中*/
-	width: 200px;
-	text-align: center;
-	font-size: 40px;
+#navigator{
+	margin:0 auto;
+	width:960px;
+	height:100px;
+	background-color:#f37022;
 }
-.head_text:hover{
-	-webkit-animation-name: 'fisheyes';
-	-webkit-animation-duration: 3s;
-	-webkit-animation-interation-count: infinite;
-	cursor: pointer;
+#logo_img{
+	float:left;
+	width:200px;
+	height:100%;
 }
+
+#admin span{
+	float:left;
+	width:100px;
+	height:20px;
+	margin-top:10px;
+	margin-left:600px;
+	font-size:20;
+	font-family:微软雅黑;
+}
+#logo_img img{
+	width:100%;
+	height:100%;
+}
+#menu{
+	margin-left:200px;
+}
+#menu li{
+	float:left;
+	width:150px;
+	text-align:center;
+	margin-top:20px;
+	font-family:'微软雅黑';
+	font-size:20px;
+	text-align:center;
+	color:black;
+}
+
+#menu .active{
+	font-size:25px;
+	color:white;
+}
+#menu li:hover{
+	cursor:pointer;
+	color:#ffffff;
+	font-size:25px;
+}
+
+#dinner_time{
+	margin:0 auto;
+	width:600px;
+	height:40px;
+}
+
+#dinner_time span{
+	color:white;
+	float:left;
+	padding-top:10px;
+	width:200px;
+	height:100%
+}
+
 .main_frame{
-	position: relative;
-	top: 70px;
+	position: absolute;
+	top: 22%;
+	left:14.5%;
+	width: 970px;
+	height: 480px;
 	bottom: 20px;
 	border-style: solid;
 	border-width: 2px;
@@ -54,14 +79,21 @@
 
 }
 
+.main_frame h2{
+	position: absolute;
+	top: 8%;
+	left:5%;
+}
+
 .p_label{
 	margin-top: 100px;
 }
 
 /*the last few button*/
 .enter_menu{
-	position: relative;
-	left: 900px;
+	position: absolute;
+	right: 10%;
+	bottom: 2%;
 	/*float: right;*/
 	/*margin-right: 100px;*/
 	margin-bottom: 50px;
