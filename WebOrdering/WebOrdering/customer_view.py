@@ -12,6 +12,12 @@ def new_customer(request):
     return HttpResponse(text)
 
 def check_phone(request):
+    if request.POST.has_key('mobi'):
+        name=request.POST['mobi']
+        if is_old_customer(name):
+            return HttpResponseRedirect('/old_customer')
+        else:
+            return HttpResponseRedirect('/new_customer')
     text=open('WebOrdering/check_phone.html').read()
     return HttpResponse(text)
 
@@ -27,3 +33,6 @@ def check_submit(request):
 def choose_food(request):
     text=open('WebOrdering/choose_food.html').read()
     return HttpResponse(text)
+
+def is_old_customer(name):
+    return False

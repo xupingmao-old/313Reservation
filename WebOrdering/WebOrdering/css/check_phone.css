@@ -126,7 +126,7 @@ height:40;
 width: 120;
 text-align: center;
 }
-#submit a span{
+#submit a input{
 background-position: 100% -31px;
 color: red;
 float: none;
@@ -136,6 +136,7 @@ padding: 6px 6px 6px 3px;
 font-weight: bold;
 text-align: center;
 font-size: 18px;
+width:200px;
 }
 
 .login_form_middle{

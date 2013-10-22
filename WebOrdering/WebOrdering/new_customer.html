@@ -13,9 +13,11 @@
 <div class='main_frame'>
 	<h2>欢迎您首次网上订餐，请填写以下信息：</h2>
 	<div >
+	<form name='form1' id='form1' >
 		<p class='p_label' id='p_label_1'>
 			<div>
 			<label>联系电话:</label>
+			<!--
 			<table class='table_1'  id="table1" border=1 >
 				<tr>
 					<th class='row_1' id='th_1'>类型</th>
@@ -26,28 +28,34 @@
 				<tr>
 					<th >手机</th>
 					<th ></th>
+<<<<<<< HEAD
+					<th><input id='in_1' type='radio'  onclick="chooseCollapse()" /></th>
+					<th> <input id='in_2' type='submit'></th>
+=======
 					<th><form id="tel" name="tel"><input id='in_1' type='radio'  onclick="chooseCollapse()" /></form></th>
-					<th><!-- <input id='in_2' type='submit'> --></th>
+					<th><!-- <input id='in_2' type='submit'>
 				</tr>	
 			</table>
-			<button  type='button' onclick="phoneShow_new()" >新增</button>
+			-->
+			<input type='text'/>
 			<span id="span_1">手机号：</span>
-			<input id="in_5" onfocus="focusHide('in_5')" onblur="blurShow('in_5')" value="请输入">
+			<input id="in_5" onfocus="focusHide('in_5')" name='phone' onblur="blurShow('in_5')" value="请输入">
 			<button id="btn_1" type="button" >添加</button>
 			</div>
 		</p>
 		<p class='p_label'>
 			<label>顾客姓名:</label>
-			<input id='in_3' form="tel" onfocus="focusHide('in_3')" onblur="blurShow('in_3')" value="请输入">
-			<input type='radio'  form="tel" value='male' name='sex'><span>男</span><input type='radio' form="tel" value='female' name='sex'><span>女</span>
+			<input id='in_3' onfocus="focusHide('in_3')" onblur="blurShow('in_3')" name='name' value="请输入">
+			<input type='radio' value='male' name='sex'><span>男</span><input type='radio' value='female' name='sex'><span>女</span>
 		</p>
 		<p class='p_label'>
 			<label>送餐地址:</label>
-			<input id='in_4' form="tel" onfocus="focusHide('in_4')" onblur="blurShow('in_4')" value="请输入">
-			<span>（华科范围以内）</span>
+			<!--<input id='in_4' onfocus="focusHide('in_4')" onblur="blurShow('in_4')" value="请输入">-->
+			<textarea name='address'></textarea><span>（华科范围以内）</span>
 		</p>
+			<input type='submit' class='enter_menu' value='进入菜单'/>
+		</form>
 	</div>
-	<div class='enter_menu' onclick="home()">进入菜单</div>
 </div>
 
 </body>
